@@ -1,0 +1,118 @@
+ASM =		genam
+
+all:		gamefast.dat \
+		messages_fre.dat \
+		messages_ger.dat \
+		messages_ita.dat \
+		messages_spa.dat \
+		items_fre.dat \
+		items_ger.dat \
+		items_ita.dat \
+		items_spa.dat
+
+################################################################################
+
+gamefast.dat:	more.sfx \
+		windows.gfx \
+		items.dat \
+		messages.dat \
+		monsters.dat \
+		exgfx.gfx
+		join more.sfx windows.gfx items.dat messages.dat monsters.dat exgfx.gfx as gamefast.dat
+		copy gamefast.dat 3dgame:test/hiredgunscd32/game/GameFast.dat
+#		compress p d gamefast.dat
+#		copy ram:test.rnc 3dgame:diskdata/disk2/game/GameFast.dat
+#		copy ram:test.rnc 3dgame:diskdata/diskedit2/game/GameFast.dat
+#		copy ram:test.rnc 3dgame:diskdata/diskdemo/game/GameFast.dat
+#		copy ram:test.rnc 3dgame:diskdata/diskrollingdemo/game/GameFast.dat
+#		copy ram:test.rnc 3dgame:test/hiredguns/game/GameFast.dat
+#		copy ram:test.rnc 3dgame:test/hiredgunsdemo/game/GameFast.dat
+#		copy ram:test.rnc 3dgame:test/hiredgunseditor/game/GameFast.dat
+
+windows.gfx:	windows.ilbm \
+		windows.s
+		ilbm2raw -cf0,0,160,103 windows.ilbm ram:window1.bin
+		ilbm2raw -cf160,0,160,103 windows.ilbm ram:window2.bin
+		ilbm2raw -cf0,109,160,103 windows.ilbm ram:window3.bin
+		ilbm2raw -cf160,109,160,103 windows.ilbm ram:window4.bin
+		ilbm2raw -cf0,217,80,79 windows.ilbm ram:window5.bin
+		$(ASM) from windows.s to Windows.gfx
+		strip windows.gfx 32 4
+
+items.dat:	items.s
+		$(ASM) items.s to Items.dat
+		strip items.dat 32 4
+
+more.sfx:	moresfx.s
+		$(ASM) moresfx.s to More.sfx
+		strip more.sfx 32 4
+
+messages.dat:	messages.s
+		$(ASM) messages.s to Messages.dat
+		strip messages.dat 32 4
+
+messages_fre.dat:	messages_fre.s
+			$(ASM) messages_fre.s to Messages_fre.dat
+			strip messages_fre.dat 32 4
+                        compress p d messages_fre.dat
+			copy ram:test.rnc 3dgame:diskdata/disk2/game/Messages.fre
+
+messages_ger.dat:	messages_ger.s
+			$(ASM) messages_ger.s to Messages_ger.dat
+			strip messages_ger.dat 32 4
+                        compress p d messages_ger.dat
+			copy ram:test.rnc 3dgame:diskdata/disk2/game/Messages.ger
+
+messages_ita.dat:	messages_ita.s
+			$(ASM) messages_ita.s to Messages_ita.dat
+			strip messages_ita.dat 32 4
+                        compress p d messages_ita.dat
+			copy ram:test.rnc 3dgame:diskdata/disk2/game/Messages.ita
+
+messages_spa.dat:	messages_spa.s
+			$(ASM) messages_spa.s to Messages_spa.dat
+			strip messages_spa.dat 32 4
+                        compress p d messages_spa.dat
+			copy ram:test.rnc 3dgame:diskdata/disk2/game/Messages.spa
+
+monsters.dat:	monsters.s
+		$(ASM) from monsters.s to Monsters.dat
+		strip monsters.dat 32 4
+
+exgfx.gfx:	exgfx.s\
+		grenade.s\
+		grenade.ilbm\
+		sentry.s\
+		sentry.ilbm\
+		3dgame:graphics/misc/raw/active.bin\
+		3dgame:graphics/misc/raw/inactive.bin
+		$(ASM) from exgfx.s to ExGfx.gfx
+		strip exgfx.gfx 32 4
+
+items_fre.dat:	items_fre.s
+		$(ASM) items_fre.s to Items_fre.dat
+		strip items_fre.dat 32 4
+		copy items_fre.dat 3dgame:test/hiredgunscd32/game/Items.fre
+#		compress p d items_fre.dat
+#		copy ram:test.rnc 3dgame:diskdata/disk2/game/Items.fre
+
+items_ger.dat:	items_ger.s
+		$(ASM) items_ger.s to Items_ger.dat
+		strip items_ger.dat 32 4
+		copy items_ger.dat 3dgame:test/hiredgunscd32/game/Items.ger
+#		compress p d items_ger.dat
+#		copy ram:test.rnc 3dgame:diskdata/disk2/game/Items.ger
+
+items_ita.dat:	items_ita.s
+		$(ASM) items_ita.s to Items_ita.dat
+		strip items_ita.dat 32 4
+		copy items_ita.dat 3dgame:test/hiredgunscd32/game/Items.ita
+#		compress p d items_ita.dat
+#		copy ram:test.rnc 3dgame:diskdata/disk2/game/Items.ita
+
+items_spa.dat:	items_spa.s
+		$(ASM) items_spa.s to Items_spa.dat
+		strip items_spa.dat 32 4
+		copy items_spa.dat 3dgame:test/hiredgunscd32/game/Items.spa
+#		compress p d items_spa.dat
+#		copy ram:test.rnc 3dgame:diskdata/disk2/game/Items.spa

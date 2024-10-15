@@ -1,0 +1,220 @@
+0 0 1 0
+2 0
+8 16 40 16 32
+0 1 1 1
+HiredGunsCD
+Hired Guns
+Psygnosis
+Scott Johnston
+Hired Guns
+
+CDN:
+0016	3Dgame:Test/HiredGunsCD32
+ 0001	<Root Dir>
+ 0001	Atmos
+ 0001	C
+ 0001	CharactersGfx
+ 0001	ChSelect
+ 0001	Front
+ 0001	Game
+ 0001	Intro
+ 0001	Languages
+ 0001	Libs
+ 0001	Maps
+ 0001	MonstersGfx
+ 0001	S
+ 0001	Static
+ 0001	Styles
+ 0001	World
+
+H0000	<ISO Header>
+P0000	<Path Table>
+P0000	<Path Table>
+C0000	<Trademark>
+D0001	<Root Dir>
+D0002	Atmos
+D0003	C
+D0004	CharactersGfx
+D0005	ChSelect
+D0006	Front
+D0007	Game
+D0008	Intro
+D0009	Languages
+D0010	Libs
+D0011	Maps
+D0012	MonstersGfx
+D0013	S
+D0014	Static
+D0015	Styles
+D0016	World
+F0001	.info
+F0001	Disk.info
+F0001	Hired Guns
+F0001	Hired Guns (NoExit).info
+F0001	Hired Guns.info
+F0001	HiredGunsIntro
+F0002	Atmos00.sfx
+F0002	Atmos01.sfx
+F0002	Atmos02.sfx
+F0002	Atmos03.sfx
+F0002	Atmos04.sfx
+F0002	Atmos05.sfx
+F0002	Atmos06.sfx
+F0002	Atmos07.sfx
+F0002	Water.sfx
+F0003	CD2XSpeed
+F0003	SetPatch
+F0003	SystemTakeover
+F0003	SystemTakeover.dat
+F0004	Adele.gfx
+F0004	Bonden.gfx
+F0004	Cheule.gfx
+F0004	CIM-Lite.gfx
+F0004	CIM.gfx
+F0004	Clavius.gfx
+F0004	Desverger.gfx
+F0004	Jenillee.gfx
+F0004	Katrina.gfx
+F0004	Kiurcher.gfx
+F0004	Miyriel.gfx
+F0004	Rorian.gfx
+F0005	Characters.dat
+F0005	ChSelect.dat
+F0006	Death.dat
+F0006	Fill.dat
+F0006	Front.dat
+F0006	Mesg.dat
+F0006	Outro.dat
+F0006	Outro.fre
+F0006	Outro.ger
+F0006	Outro.ita
+F0006	Outro.spa
+F0006	SmallMesg.dat
+F0007	ExtraSfx.dat
+F0007	Foreign.font
+F0007	Game.cpr
+F0007	GameChip.dat
+F0007	GameFast.dat
+F0007	Items.fre
+F0007	Items.ger
+F0007	Items.gfx
+F0007	Items.ita
+F0007	Items.spa
+F0007	Messages.fre
+F0007	Messages.ger
+F0007	Messages.ita
+F0007	Messages.spa
+F0007	Misc.gfx
+F0008	1.ilbm
+F0008	12text.ilbm
+F0008	2.ilbm
+F0008	3-5text.ilbm
+F0008	3.ilbm
+F0008	4.ilbm
+F0008	5.ilbm
+F0008	6-7text.ilbm
+F0008	6.ilbm
+F0008	8-11text.ilbm
+F0008	DMA.ilbm
+F0008	Intro.mod
+F0008	Psygnosis.ilbm
+F0008	Scott.ilbm
+F0008	Title.ilbm
+F0009	Phrasebook.eng
+F0009	Phrasebook.fre
+F0009	Phrasebook.ger
+F0009	Phrasebook.ita
+F0009	Phrasebook.spa
+F0010	iffparse.library
+F0010	lowlevel.library
+F0010	nonvolatile.library
+F0011	01.map
+F0011	02.map
+F0011	03.map
+F0011	04.map
+F0011	05.map
+F0011	06.map
+F0011	07.map
+F0011	08.map
+F0011	09.map
+F0011	10.map
+F0011	11.map
+F0011	12.map
+F0011	14.map
+F0011	15.map
+F0011	17.map
+F0011	18.map
+F0011	19.map
+F0011	20.map
+F0011	21.map
+F0011	23.map
+F0011	25.map
+F0011	26.map
+F0011	27.map
+F0011	28.map
+F0011	29.map
+F0011	30.map
+F0011	31.map
+F0011	33.map
+F0011	34.map
+F0011	35.map
+F0011	37.map
+F0011	38.map
+F0011	39.map
+F0011	40.map
+F0011	41.map
+F0011	42.map
+F0011	43.map
+F0011	44.map
+F0011	45.map
+F0011	46.map
+F0011	47.map
+F0012	Monster01.gfx
+F0012	Monster02.gfx
+F0012	Monster03.gfx
+F0012	Monster04.gfx
+F0012	Monster05.gfx
+F0012	Monster06.gfx
+F0012	Monster07.gfx
+F0012	Monster08.gfx
+F0012	Monster09.gfx
+F0012	Monster10.gfx
+F0012	Monster11.gfx
+F0012	Monster12.gfx
+F0012	Monster13.gfx
+F0012	Monster14.gfx
+F0012	Monster15.gfx
+F0012	Monster16.gfx
+F0012	Monster17.gfx
+F0012	Monster18.gfx
+F0012	Monster19.gfx
+F0013	Startup-Sequence
+F0014	Static.dat
+F0014	Static01.mod
+F0014	Static01.pic
+F0014	Static02.mod
+F0014	Static02.pic
+F0014	Static03.mod
+F0014	Static03.pic
+F0014	Static04.mod
+F0014	Static04.pic
+F0014	Static05.mod
+F0014	Static05.pic
+F0014	Static07.pic
+F0014	Static08.pic
+F0014	Static09.pic
+F0014	Static10.pic
+F0014	Static11.pic
+F0014	Static12.pic
+F0014	Static13.pic
+F0014	Static14.pic
+F0015	Style00.gfx
+F0015	Style01.gfx
+F0015	Style02.gfx
+F0015	Style03.gfx
+F0015	Style04.gfx
+F0016	Locations.dat
+F0016	Map.pic
+F0016	World.dat
+F0016	WorldForeign.dat
+E0000	65536    

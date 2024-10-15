@@ -1,0 +1,26 @@
+ASM =		genam
+
+################################################################################
+
+all:		intro.dat \
+		intro_demo.dat
+
+intro.dat:	intro.cpr \
+		intro.mod \
+		logos.pic
+		join intro.cpr intro.mod logos.pic as intro.dat
+		execute 3dgame:c/compress p d intro.dat
+		copy ram:test.rnc 3dgame:diskdata/disk1/front/Intro.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Intro.dat
+
+intro_demo.dat:	intro.cpr \
+		intro.mod \
+		logos_demo.pic
+		join intro.cpr intro.mod logos_demo.pic as intro_demo.dat
+		execute 3dgame:c/compress p d intro_demo.dat
+		copy ram:test.rnc 3dgame:diskdata/diskdemo/front/Intro.dat
+		copy ram:test.rnc 3dgame:test/hiredgunsdemo/front/Intro.dat
+
+intro.cpr:	intro.s
+		$(ASM) from intro.s to Intro.cpr
+		strip intro.cpr 32 4

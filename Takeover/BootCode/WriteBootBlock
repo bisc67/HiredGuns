@@ -1,0 +1,2 @@
+ask "Insert a disk into df0: then press return when ready..."
+bootwriter anticdtv

@@ -1,0 +1,16 @@
+.key opt1,opt2
+.bra {
+.ket }
+
+copy {opt1} ram:makemaps/temp1
+strip ram:makemaps/temp1 0 157196
+if exists ram:makemaps/temp2
+	join ram:makemaps/temp2 ram:makemaps/temp1 as ram:makemaps/temp3
+	delete ram:makemaps/temp2
+	rename ram:makemaps/temp3 ram:makemaps/temp2
+else
+	copy ram:makemaps/temp1 ram:makemaps/temp2
+endif
+
+;copy {opt1} {opt2}
+;strip >nil: {opt2} 0 157196

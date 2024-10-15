@@ -1,0 +1,7 @@
+11 04 13    1 "Fresh air at last!"
+11 04 13    2 "I thought I was going to vomit!"
+11 04 13    3 "I hate fish!"
+07 14 11    6 "Staircase has crumbled away, we'll have to swim for it."
+02 12 09    6 "The exit must be in here some where."
+17 03 07    6 "I've got to find the keys for the cell tower."
+

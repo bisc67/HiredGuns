@@ -1,0 +1,40 @@
+.key Figure
+
+List >Ram:CopyFile1 "<Figure>" lformat "Copy Ram:MakeFigure/Figure.crn *"Gfx/%N.gfx*""
+List >Ram:CopyFile2 "<Figure>" lformat "Copy Ram:MakeFigure/Figure2.bob *"3dgame:monsters/bob/%N.bob*""
+List >Ram:CopyFile3 "<Figure>" lformat "Copy Ram:MakeFigure/Attack.bob *"3dgame:monsters/bob/%N_attack.bob*""
+List >Ram:CopyFile4 "<Figure>" lformat "Copy Ram:MakeFigure/Dead.bob *"3dgame:monsters/bob/%N_dead.bob*""
+
+If Not Exists Ram:MakeFigure/Dead.dump
+	Copy MakeFigure Ram:MakeFigure quiet
+EndIf
+
+Copy "<Figure>" Ram:MakeFigure/Figure.ilbm quiet
+
+ram:makefigure/MakeFigure >nil: -@Ram:MakeFigure/Filters -#Left Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Left.bin
+Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Left.bin as Ram:MakeFigure/Left.bob
+
+ram:makefigure/MakeFigure >nil: -@Ram:MakeFigure/Filters -#Right Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Right.bin
+Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Right.bin as Ram:MakeFigure/Right.bob
+
+ram:makefigure/MakeFigure >nil: -@Ram:MakeFigure/Filters -#Front Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Front.bin
+Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Front.bin as Ram:MakeFigure/Front.bob
+
+ram:makefigure/MakeFigure >nil: -@Ram:MakeFigure/Filters -#Back Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Back.bin
+Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Back.bin as Ram:MakeFigure/Back.bob
+
+ram:makefigure/MakeFigure >nil: -@Ram:MakeFigure/Filters -#Dead Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Dead.bin
+Join Ram:MakeFigure/Dead.dump Ram:MakeFigure/Dead.bin as Ram:MakeFigure/Dead.bob
+
+ram:makefigure/MakeFigure >nil: -@Ram:MakeFigure/Filters -#Attack Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Attack.bin
+Join Ram:MakeFigure/Attack.dump Ram:MakeFigure/Attack.bin as Ram:MakeFigure/Attack.bob
+
+Join Ram:MakeFigure/Front.bob Ram:MakeFigure/Left.bob Ram:MakeFigure/Right.bob Ram:MakeFigure/Back.bob as Ram:MakeFigure/Figure2.bob
+
+Join Ram:MakeFigure/Front.bob Ram:MakeFigure/Left.bob Ram:MakeFigure/Right.bob Ram:MakeFigure/Back.bob Ram:MakeFigure/Dead.bob Ram:MakeFigure/Attack.bob as Ram:MakeFigure/Figure.bob
+source:crunch/Crunch >nil: Ram:MakeFigure/Figure.bob ram:Makefigure/Figure.crn
+
+Execute Ram:CopyFile1
+Execute Ram:CopyFile2
+Execute Ram:CopyFile3
+Execute Ram:CopyFile4

@@ -1,0 +1,74 @@
+ASM =		genam
+
+################################################################################
+
+all:		world.dat \
+		worldcd32.dat \
+		seworld.dat \
+		worldforeign.dat
+
+################################################################################
+
+seworld.dat:	world.mod \
+		world.cpr \
+		world.font \
+		sprites.hws \
+		semap.pic \
+		panel.pic
+		join world.mod world.cpr world.font sprites.hws semap.pic panel.pic as seworld.dat
+		compress p d seworld.dat
+		copy ram:test.rnc 3dgame:data/world.dat/SEWorld.dat
+
+################################################################################
+
+world.dat:	world.mod \
+		world.cpr \
+		world.font \
+		sprites.hws \
+		map.pic \
+		panel.pic
+		join world.mod world.cpr world.font sprites.hws map.pic panel.pic as world.dat
+		compress p d world.dat
+		copy ram:test.rnc 3dgame:diskdata/disk2/world/World.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/world/World.dat
+
+world.cpr:	world.s
+		$(ASM) world.s to World.cpr
+		strip world.cpr 32 4
+
+world.font:	worldfont.ilbm \
+		worldfont.s
+		ilbm2raw -f0,0,336,48Zcgb2M16N8rm worldfont.ilbm ram:worldfont.bin
+		$(ASM) from worldfont.s to World.font
+		strip world.font 32 4
+
+sprites.hws :	sprites.ilbm
+		execute sprites.script
+		$(ASM) from sprites.s to Sprites.hws
+		strip sprites.hws 32 4
+
+panel.pic :	panel.ilbm
+		ilbm2raw -cf0,0,640,51 panel.ilbm Panel.pic
+
+worldforeign.dat:	worldforeign.s
+			$(ASM) worldforeign.s to WorldForeign.dat
+			strip WorldForeign.dat 32 4
+			compress p d WorldForeign.dat
+			copy ram:test.rnc 3dgame:diskdata/disk2/world/WorldForeign.dat
+			copy ram:test.rnc 3dgame:test/hiredguns/world/WorldForeign.dat
+
+################################################################################
+
+worldcd32.dat:	world.mod \
+		worldcd32.cpr \
+		world.font \
+		sprites.hws \
+		map4.pic \
+		panel.pic
+		join world.mod worldcd32.cpr world.font sprites.hws panel.pic as WorldCD32.dat
+		copy WorldCD32.dat 3dgame:test/hiredgunscd32/world/World.dat
+		copy Map4.pic 3dgame:test/hiredgunscd32/world/Map.pic
+
+worldcd32.cpr:	worldcd32.s
+		$(ASM) worldcd32.s to WorldCD32.cpr
+		strip worldcd32.cpr 32 4

@@ -1,0 +1,47 @@
+ASM =		genam
+
+################################################################################
+
+all :		gamecd32
+#		game\
+#		game3 \
+#		game_nocol0
+
+game :		game.s \
+		/macros.i \
+		/hardware.i
+		$(ASM) game.s
+		strip game 32 4
+		copy game 3dgame:diskdata/disk1/game/Game.cpr
+		copy game 3dgame:diskdata/disk2/game/Game.cpr
+		copy game 3dgame:diskdata/diskedit2/game/Game.cpr
+		copy game 3dgame:test/hiredguns/Game/Game.cpr
+		copy game 3dgame:test/hiredgunseditor/Game/Game.cpr
+
+gamecd32 :	gamecd32.s \
+		/macros.i \
+		/hardware.i
+		$(ASM) gamecd32.s
+		strip gamecd32 32 4
+		copy gamecd32 3dgame:test/hiredgunscd32/Game/Game.cpr
+
+game3 :		game3.s \
+		/macros.i \
+		/hardware.i
+		$(ASM) game3.s
+		strip game3 32 4
+		copy game3 3dgame:diskdata/disk2/game/Game3.cpr
+		copy game3 3dgame:diskdata/diskedit2/game/Game3.cpr
+		copy game3 3dgame:test/hiredguns/Game/Game3.cpr
+		copy game3 3dgame:test/hiredgunseditor/Game/Game3.cpr
+
+game_nocol0 :	game_nocol0.s \
+		/macros.i \
+		/hardware.i
+		$(ASM) game_nocol0.s
+		strip game_nocol0 32 4
+		copy game_nocol0 3dgame:diskdata/disk1/game/Game.cpr
+		copy game_nocol0 3dgame:diskdata/disk2/game/Game.cpr
+		copy game_nocol0 3dgame:diskdata/diskedit2/game/Game.cpr
+		copy game_nocol0 3dgame:test/hiredguns/Game/Game.cpr
+		copy game_nocol0 3dgame:test/hiredgunseditor/Game/Game.cpr

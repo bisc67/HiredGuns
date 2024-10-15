@@ -1,0 +1,44 @@
+3dgame:test/hiredgunscd32/styles/Style03.gfx:	style4.s \
+						/raw/light.bin \
+						/raw/tree1.bin
+#						/raw/tree2.bin \
+#						/raw/tree3.bin
+						genam style4.s
+						strip 3dgame:test/hiredgunscd32/styles/style03.gfx 32 4
+
+/raw/light.bin:		light.s \
+			light.script \
+			/ilbm/light.ilbm
+			ilbm2raw -b4cm -@light.script /ilbm/light.ilbm ram:output.bin
+			genam light.s
+			strip /raw/light.bin 32 4
+
+/raw/tree1.bin:		tree1.s \
+			/ilbm/tree.ilbm
+			ilbm2raw -mb4cf0,0,64,119 /ilbm/tree.ilbm ram:temp1
+			ilbm2raw -mb4cf64,0,48,86 /ilbm/tree.ilbm ram:temp2
+			ilbm2raw -mb4cf112,0,32,59 /ilbm/tree.ilbm ram:temp3
+			ilbm2raw -mb4cf144,0,32,41 /ilbm/tree.ilbm ram:temp4
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 as ram:output.bin
+			genam tree1.s
+			strip /raw/tree1.bin 32 4
+
+/raw/tree2.bin:		tree2.s \
+			/ilbm/tree.ilbm
+			ilbm2raw -mb4cf0,119,64,119 /ilbm/tree.ilbm ram:temp1
+			ilbm2raw -mb4cf64,119,48,86 /ilbm/tree.ilbm ram:temp2
+			ilbm2raw -mb4cf112,119,32,59 /ilbm/tree.ilbm ram:temp3
+			ilbm2raw -mb4cf144,119,32,41 /ilbm/tree.ilbm ram:temp4
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 as ram:output.bin
+			genam tree2.s
+			strip /raw/tree2.bin 32 4
+
+/raw/tree3.bin:		tree3.s \
+			/ilbm/tree.ilbm
+			ilbm2raw -mb4cf0,238,64,119 /ilbm/tree.ilbm ram:temp1
+			ilbm2raw -mb4cf64,238,48,86 /ilbm/tree.ilbm ram:temp2
+			ilbm2raw -mb4cf112,238,32,59 /ilbm/tree.ilbm ram:temp3
+			ilbm2raw -mb4cf144,238,32,41 /ilbm/tree.ilbm ram:temp4
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 as ram:output.bin
+			genam tree3.s
+			strip /raw/tree3.bin 32 4

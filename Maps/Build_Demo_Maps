@@ -1,0 +1,19 @@
+3dgame:diskdata/diskdemo/world/locations.dat:	demo/map01/01.rnc\
+						demo/map02/02.rnc\
+						demo/map03/03.rnc
+						3dgame:scripts/makedemomaps
+
+demo/map01/01.rnc:	demo/map01/01.map
+			compress p d demo/map01/01.map
+			copy ram:test.rnc demo/map01/01.rnc
+			copy ram:test.rnc 3dgame:diskdata/diskdemo/maps/01.map
+
+demo/map02/02.rnc:	demo/map02/02.map
+			compress p d demo/map02/02.map
+			copy ram:test.rnc demo/map02/02.rnc
+			copy ram:test.rnc 3dgame:diskdata/diskdemo/maps/02.map
+
+demo/map03/03.rnc:	demo/map03/03.map
+			compress p d demo/map03/03.map
+			copy ram:test.rnc demo/map03/03.rnc
+			copy ram:test.rnc 3dgame:diskdata/diskdemo/maps/03.map

@@ -1,0 +1,3 @@
+C/SetPatch QUIET
+C/CD2XSpeed >NIL:
+C/SystemTakeover >NIL: FROM "Hired Guns (GameCtrl)"

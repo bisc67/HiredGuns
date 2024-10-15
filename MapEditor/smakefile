@@ -1,0 +1,67 @@
+CC =		sc
+ASM =		genam
+LINK =		slink
+LINKOPTS =	addsym smallcode smalldata
+
+################################################################################
+
+OBJECTS =	lib:c.o \
+		hgedit2.o \
+		hgedit1.o \
+		hgedit3.o \
+		lib:reqlib/lreqglue.o \
+		unpack.o
+
+DATA =		world.dat \
+		blocks.dat \
+		monsters.dat\
+		title.ilbm
+
+LIBRARIES =	lib:sc.lib \
+		lib:amiga.lib
+
+################################################################################
+
+hgedit:		$(DATA) \
+		$(OBJECTS) \
+		$(LIBRARIES)
+		$(LINK) from $(OBJECTS) to HGedit lib $(LIBRARIES) $(LINKOPTS)
+		copy hgedit 3dgame:test/hiredgunseditor/HGedit
+
+hgedit1.o:	hgedit1.c \
+		common.c \
+		hgmapstructure.h
+		$(CC) hgedit1.c
+
+hgedit2.o:	hgedit2.c \
+		common.c \
+		hgmapstructure.h
+		$(CC) hgedit2.c
+
+hgedit3.o:	hgedit3.c \
+		common.c \
+		hgmapstructure.h
+		$(CC) hgedit3.c
+
+blocks.dat:	blocks.ilbm
+		ilbm2raw -b3cgM16N16r blocks.ilbm ram:test
+		execute 3dgame:c/compress p d ram:test
+		copy ram:test.rnc Blocks.dat
+		copy blocks.dat 3dgame:test/hiredgunseditor/Blocks.dat
+
+world.dat:	world.ilbm
+		ilbm2raw -c world.ilbm World.dat
+		copy world.dat 3dgame:diskdata/diskedit1/editor/World.dat
+		copy world.dat work:games/hiredgunseditor/editor/World.dat
+
+monsters.dat:	monsters.ilbm \
+		monsters8.ilbm
+		ilbm2raw -cf0,0,320,320 monsters8.ilbm Monsters.dat
+		copy monsters.dat 3dgame:diskdata/diskedit1/editor/Monsters.dat
+		copy monsters.dat work:games/hiredgunseditor/editor/Monsters.dat
+
+title.ilbm:
+		copy title.ilbm 3dgame:diskdata/diskedit1/editor/Title.ilbm
+
+unpack.o:	unpack.s
+		$(ASM) unpack.s

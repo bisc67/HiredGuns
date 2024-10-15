@@ -1,0 +1,8 @@
+.key input
+.bra {
+.ket }
+
+rename "{input}" test
+3dgame:c/propack u d test
+delete test
+rename test.rnc "{input}"

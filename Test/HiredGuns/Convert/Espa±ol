@@ -1,0 +1,75 @@
+.key Figure
+
+Echo "*N                         - [1mPERSONALIZACION DE DIBUJOS[22m -*N"
+
+If "<Figure>" Eq ""
+	Echo "     Destaque este icono (haga clic sobre él una vez) y, a continuación,*N     mantenga pulsada la tecla Mayús*N"
+	Ask "               [32mPulse tecla INTRO para continuar[31m"
+        EndCli
+EndIf
+
+List >Ram:CopyFile1 "<Figure>" lformat "Copy Ram:MakeFigure/Figure.crn /CharactersGfx/%N.gfx"
+List >Ram:CopyFile2 "<Figure>" lformat "Copy Ram:MakeFigure/Figure.crn *"Hired Guns Disk 1:CharactersGfx/%N.gfx*""
+List >Ram:CopyFile3 "<Figure>" lformat "Copy Ram:MakeFigure/Figure.crn //Disk1/CharactersGfx/%N.gfx"
+
+If Not Exists Ram:MakeFigure
+	Echo "               [3mCopiando comandos en RAM:....[23m*N"
+	Copy /MakeFigure Ram:MakeFigure quiet
+	Copy /C/Crunch Ram:MakeFigure/Crunch quiet
+EndIf
+Path Ram:MakeFigure Add
+
+Echo "     Este enunciado convertir  el gr fico del dibujo de modo que pueda"
+Echo "     usarlo con Hired Guns."
+Echo "     Usuarios de disquetes: el enunciado intentar escribir en el disco 1,"
+Echo "     por lo tanto asegúrese de usar una copia de seguridad. Rem¡tase al"
+Echo "     manual para aprender a hacer una copia de seguridad de Hired Guns.*N"
+
+Ask "               [32m¿Quiere comenzar la conversión? ([31mY[32m/[31mN[32m)[31m"
+
+If Warn
+	Echo "*N               [3mCopiando nuevos gr ficos de dibujos en RAM:_[23m"
+	Copy "<Figure>" Ram:MakeFigure/Figure.ilbm quiet
+
+	Echo "               [3mExtrayendo los gr ficos del lateral izquierdo_[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Left Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Left.bin
+	Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Left.bin as Ram:MakeFigure/Left.bob
+
+	Echo "               [3mExtrayendo los gr ficos del lateral derecho_[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Right Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Right.bin
+	Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Right.bin as Ram:MakeFigure/Right.bob
+
+	Echo "               [3mExtrayendo los gr ficos frontales_[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Front Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Front.bin
+	Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Front.bin as Ram:MakeFigure/Front.bob
+
+	Echo "               [3mExtrayendo los gr ficos traseros_[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Back Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Back.bin
+	Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Back.bin as Ram:MakeFigure/Back.bob
+
+	Echo "               [3mExtrayendo los gr ficos del rostro_[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Face Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Face.bin
+	Join Ram:MakeFigure/Face.dump Ram:MakeFigure/Face.bin as Ram:MakeFigure/Face.bob
+
+	Echo "               [3mCompresión de archivos"
+	Echo "                (puede tardar algún tiempo en ejecutarse)_[23m"
+
+	Join Ram:MakeFigure/Front.bob Ram:MakeFigure/Left.bob Ram:MakeFigure/Right.bob Ram:MakeFigure/Back.bob Ram:MakeFigure/Face.bob as Ram:MakeFigure/Figure.bob
+	Crunch >nil: Ram:MakeFigure/Figure.bob ram:Makefigure/Figure.crn
+
+	Echo "               [3mEscribiendo el archivo...[23m"
+
+	If Exists //Disk1/CharactersGfx
+		Execute Ram:CopyFile3
+	Else
+		If Exists /CharactersGfx
+			Execute Ram:CopyFile1
+		Else
+			Execute Ram:CopyFile2
+		EndIf
+	EndIf
+
+	Echo "*N               ­Conversión completada!"
+Else
+	Echo "*N               ­Conversión abandonada!"
+EndIf

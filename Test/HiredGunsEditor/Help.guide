@@ -1,0 +1,937 @@
+@database help.guide
+
+© Copyright 1993 Scott Johnston
+All Rights Reserved Worldwide
+
+@node Main "HGedit Help"
+
+CONTENTS
+
+	HIRED GUNS MAP EDITOR
+
+	AmigaGuide Help Database
+	by Scott Johnston
+	Latest update 26th November 1993
+
+
+
+
+	Windows	@{" Map window         " link MapWindow}
+		@{" Level window       " link LevelWindow}
+		@{" Text panels window " link TextPanelsWindow}
+		@{" World window       " link WorldWindow}
+		@{" Tools window       " link ToolsWindow}
+		@{" Cell window        " link CellWindow}
+		@{" Button window      " link ButtonWindow}
+		@{" Lift window        " link LiftWindow}
+		@{" Door window        " link DoorWindow}
+
+	Menus	@{" Menu items         " link MenuItems}
+
+	Misc	@{" General problems   " link GeneralProblems}
+		@{" Example map        " link ExampleMap}
+		@{" Keyboard controls  " link Keyboard}
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node MapWindow
+
+MAP WINDOW
+
+	This window sets global parameters that are frequently changed.
+
+		@{" Mesg        " link MapWindowMesg}
+		@{" Time        " link MapWindowTime}
+		@{" Lv          " link MapWindowLv}
+		@{" Players     " link MapWindowPlayers}
+		@{" Tidal water " link MapWindowTidalWater}
+
+	See also @{" World window " link WorldWindow}
+@endnode
+
+@rem ***************************************************************************
+
+@node MapWindowMesg
+
+MAP WINDOW
+  MESG
+
+	The initial message the appears on the scrolly at the begining
+	of a level.
+@endnode
+
+@rem ***************************************************************************
+
+@node MapWindowTime
+
+MAP WINDOW
+  TIME
+
+	Amount of time given to complete the map in multiples of ten
+	seconds.
+
+	This value only applies to action levels.
+@endnode
+
+@rem ***************************************************************************
+
+@node MapWindowLv
+
+MAP WINDOW
+  LV
+
+	Z coord measured from 0 to 19. Where 0 is the lowest level and 19
+	the highest.
+@endnode
+
+@rem ***************************************************************************
+
+@node MapWindowPlayers
+
+MAP WINDOW
+  PLAYERS
+
+	Players starting positions in x,y, and z coords. Where 0,0,0 is at
+	the top left on the bottom level.
+
+	Use the "set" button and the click in the level window to place a
+	player in the map. Or type in the coords directly into the number
+        gadgets.
+
+	At the begining of a map the players will be facing in a random
+	direction.
+@endnode
+
+@rem ***************************************************************************
+
+@node MapWindowTidalWater
+
+MAP WINDOW
+  TIDAL WATER
+
+	Water will rise and fall between a maximum and minimum height
+	measured in quarter cell intervals.
+
+        The higher the number in the speed gadget the slower the water
+	will move (or zero for no movement).
+
+	Wherever a "flow" bit is set (see @{"cell window" link CellWindow} the water will
+	flow through that cell.
+
+	For example,
+                To create a well, line a vertical passage will "stone"
+		blocks. Then down the centre of the well place cells with
+		only the "flow" bit set. If the base of the is at level 5
+		and its top at 10 then set the water minimum and maximum
+		to 20 and 40 respectively. Set the water "speed" to 35.
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node LevelWindow
+
+LEVEL WINDOW
+
+	This window shows a plan-view cross-section of the map. The
+	map is a cube 23 * 23 * 20 in size (10580 locations). Using
+	the left mouse button will perform the action specified in
+	the @{"tools window" link ToolsWindow}. The right mouse button will delete
+	the cell under the cursor.
+
+	The current position of the cursor (the red box) is shown
+	on the title bar of the window, each coordinate starts from
+	zero. These values correspond with the level number in the
+	@{"map window" link MapWindow}, the minimum and maximum values in the
+	@{"lift window" link LiftWindow} and the button target in the @{"button window" link ButtonWindow}.
+
+	This window is one of three windows overlaid in this part of
+	the screen. Click on the window depth gadget to push the
+	window to the back and bring the next forward. The other
+	windows available are....
+
+		@{" Text panels window " link TextPanelsWindow}
+		@{" World window       " link WorldWindow}
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node TextPanelsWindow
+
+TEXT PANELS WINDOW
+
+	This windows allows a visual choice from the 32 text panels
+	currently loaded. Clicking on a panel  with the left mouse
+	button will set the appropriate @{"cell window" link CellWindow} attributes.
+
+	To load a new set on panels use the @{"load panels" link Main} menu item.
+
+	See the @{"load panels" link MenuItemLoadPanels} menu item for more information.
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node WorldWindow
+
+WORLD WINDOW
+
+	This window sets global parameters that are not changed very
+	often.
+
+		@{" Worldmap position    " link WorldWindowWorldmapPosition}
+		@{" Game type            " link WorldWindowGameType}
+
+		@{" Disk                 " link WorldWindowDisk}
+		@{" File                 " link WorldWindowFile}
+		@{" Picture              " link WorldWindowPicture}
+		@{" Music                " link WorldWindowMusic}
+		@{" Atmos                " link WorldWindowAtmos}
+		@{" Monst 1              " link WorldWindowMonst1}
+		@{" Monst 2              " link WorldWindowMonst2}
+		@{" Sky                  " link WorldWindowSky}
+		@{" Style                " link WorldWindowStyle}
+
+		@{" Worldmap description " link WorldWindowWorldmapDescription}
+		@{" Detailed description " link WorldWindowDetailedDescription}
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowWorldmapPosition
+
+WORLD WINDOW
+  WORLDMAP POSITION
+
+	Clicking on the map picture with the left mouse button will
+	set the position of your map on the continent.
+
+	This need only be set for compaign games.
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowGameType
+
+WORLD WINDOW
+  GAME TYPE
+
+	There are two main catagories of game type...
+
+        1. Campaign Game
+
+	A campaign game is one of 21 played in sequence and should
+	follow the game plot. It will be puzzle orientated in nature
+	and the collective difficulty curve will be finely tuned.
+
+	There are three sub-categories of campaign game...
+
+		1. "Start" level
+
+		This level will be a possible dropzone.
+
+		2. "End" level
+
+                Once this level is completed then the end of the game
+		is reached.
+
+		3. "Normal" level
+
+		A standard campaign level, one of many that are played
+                across the continent.
+
+	2. Action Game
+
+	These levels are played outside the main game plot and should be
+	self-contained mini adventures. They are mainly aimed at multiple
+	players with lots of action and inter-player combat. They should
+	be competitive in nature.
+
+	The game is completed when a player reaches the exit before the
+	@{"time limit" link MapWindowTime} expires.
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowDisk
+
+WORLD WINDOW
+  DISK
+
+	The disk number on which this map file will be found.
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowFile
+
+WORLD WINDOW
+  FILE
+
+	The file number under which this map file will be found.
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowPicture
+
+WORLD WINDOW
+  PICTURE
+
+	The picture to display that will introduce this map when it
+	is about to be played.
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowMusic
+
+WORLD WINDOW
+  MUSIC
+
+	The music to play that will introduce this map when it is about
+	to be played.
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowAtmos
+
+WORLD WINDOW
+  ATMOS
+
+	The background sound to play during this map.
+
+		0 = crickets
+		1 = wind
+		2 = rain
+		3 = heart beat
+		4 = drums
+		5 =
+		6 = echo
+		7 = electric throb
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowMonst1
+
+WORLD WINDOW
+  MONST1
+
+	The monster graphic to load into bank 1.
+
+		0  = none
+		1  = leadahl
+		2  =
+		3  =
+		4  = type 3
+		5  =
+		6  =
+		7  =
+		8  = lemming
+		9  =
+		10 =
+		11 =
+		12 =
+		13 =
+		14 =
+		15 =
+		16 =
+		17 =
+		18 =
+		19 =
+		20 =
+		21 =
+		22 =
+		23 =
+		24 =
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowMonst2
+
+WORLD WINDOW
+  MONST2
+
+	The monster graphic to load into bank 2.
+
+		0  = none
+		1  = leadahl
+		2  =
+		3  =
+		4  = type 3
+		5  =
+		6  =
+		7  =
+		8  = lemming
+		9  =
+		10 =
+		11 =
+		12 =
+		13 =
+		14 =
+		15 =
+		16 =
+		17 =
+		18 =
+		19 =
+		20 =
+		21 =
+		22 =
+		23 =
+		24 =
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowSky
+
+WORLD WINDOW
+  SKY
+
+	The sky colours to use during this map.
+
+		0 = black (no sky)
+		1 = black to torquiose
+		2 = dark blue to violet
+		3 = brown to black
+		4 = black to blue
+		5 = pale green to white
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowStyle
+
+WORLD WINDOW
+  STYLE
+
+	The graphics style to use during this map.
+
+		1 = brown stone
+		2 = hi-tech
+		3 = ice cave
+		4 = wet black bio-growth
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowWorldmapDescription
+
+WORLD WINDOW
+  WORLDMAP DESCRIPTION
+
+        Text that appears at the bottom of the worldmap screen as the
+	user scrolls the map around.
+@endnode
+
+@rem ***************************************************************************
+
+@node WorldWindowDetailedDescription
+
+WORLD WINDOW
+ DETAILED DESCRIPTION
+
+	Text that appears below the level introduction picture along
+	with the introductory music.
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node ToolsWindow
+
+TOOLS WINDOW
+
+	The options in this window determine the function of the left
+	mouse button in the @{"level window" link LevelWindow}.
+
+		@{" Pick      " link ToolsWindowPick}
+		@{" Set all   " link ToolsWindowSetAll}
+		@{" Set block " link ToolsWindowSetBlock}
+		@{" Set water " link ToolsWindowSetWater}
+		@{" Set targt " link ToolsWindowSetTargt}
+
+		@{" Highlight " link ToolsWindowHighlight}
+		@{" Cut       " link ToolsWindowCut}
+		@{" Copy      " link ToolsWindowCopy}
+		@{" Paste     " link ToolsWindowPaste}
+		@{" Fill      " link ToolsWindowFill}
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node CellWindow
+
+CELL WINDOW
+
+	The contains of this window hold a map cell which can be
+	draw into the @{"level window" link LevelWindow} using the functions available
+	from the @{"tools window" link ToolsWindow}.
+
+	IMPORTANT -----------------------------------------------------
+
+	Changing the values in this window will have no effect on the
+	map data itself until this map cell is drawn into the map.
+	This also applies to defining lifts, doors and buttons.
+  	(When defining a target for a button this target will not be
+	 attached to the button until this cell is drawn into the map.)
+
+	Remember you are only editing an temporary buffer in this window!
+
+	Note that the grey egg and sky control buttons are an exception
+	to this rule.
+
+	Block	@{" Available types " link CellWindowAvailableTypes}	Egg	@{" Contents        " link CellWindowContents}
+		@{" Push            " link CellWindowPush} 		@{" Delay           " link CellWindowDelay}
+		@{" Opaque          " link CellWindowOpaque} 		@{" NoEgg           " link CellWindowNoEgg}
+		@{" Flow            " link CellWindowFlow} 		@{" NoMon           " link CellWindowNoMon}
+
+		@{" Floor           " link CellWindowFloor}	Sky	@{" N E S W         " link CellWindowNESW}
+		@{" Panel           " link CellWindowPanel} 		@{" Invr level      " link CellWindowInvrLevel}
+		@{" Water           " link CellWindowWater} 		@{" Invr Blck       " link CellWindowInvrBlck}
+		@{" Explosion       " link CellWindowExplosion}
+		@{" Variant         " link CellWindowVariant}	Item	@{" Ammo            " link CellWindowAmmo}
+		@{" Auxiliary       " link CellWindowAuxiliary} 		@{" Damage          " link CellWindowDamage}
+						@{" Type            " link CellWindowType}
+
+	---------------------------------------------------------------
+
+	If you are running under 1.3 then this window is one of four
+	windows overlaid in this part of the screen. Click on the window
+	depth gadget to push the window to the back and bring the next
+	forward. The other windows available are....
+
+		@{" Button window " link ButtonWindow}
+		@{" Lift window   " link LiftWindow}
+		@{" Door window   " link DoorWindow}
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node ButtonWindow
+
+BUTTON WINDOW
+
+        A button is the main tool in constructing logical puzzles in the
+	game. There can be a maximum of 32 of them in the map at one
+	time.
+
+	A button is essentially a @{"panel" link Main}, as such it is visible on all four
+	sides of its parent block. A button can exist in two states,
+	pushed or released. A button can trigger two seperate events,
+	one when is being pushed in and another when it is being
+	released.
+
+	Each event can be one of 19 types....
+
+		@{" Nothing      " link ButtonWindowNothing}			@{" Toggle lift  " link ButtonWindowToggleLift}
+		@{" Floor on     " link ButtonWindowFloorOn}			@{" Unused       " link ButtonWindowUnused}
+		@{" Floor off    " link ButtonWindowFloorOff}			@{" Hatch egg    " link ButtonWindowHatchEgg}
+		@{" Toggle floor " link ButtonWindowToggleFloor}			@{" Psi effect   " link ButtonWindowPsiEffect}
+		@{" Block on     " link ButtonWindowBlockOn}			@{" Open door    " link ButtonWindowOpenDoor}
+		@{" Block off    " link ButtonWindowBlockOff}			@{" Close door   " link ButtonWindowCloseDoor}
+		@{" Toggle block " link ButtonWindowToggleBlock}			@{" Toggle door  " link ButtonWindowToggleDoor}
+		@{" Lift up      " link ButtonWindowLiftUp}			@{" Lock door    " link ButtonWindowLockDoor}
+		@{" Lift down    " link ButtonWindowLiftDown}			@{" Unlock door  " link ButtonWindowUnlockDoor}
+		@{" Stop lift    " link ButtonWindowStopLift}
+
+	All of the events except "Nothing", "Unused" and "Psi Effect"
+	require a target to be defined. Select "@{"set targt" link ToolsWindowSetTargt}" from the
+	@{"tools window" link ToolsWindow} then click with the left mouse button on the target
+	in the @{"level window" link LevelWindow}.
+	The target x, y and z coordinates at the bottom of the button
+	window will change to show your selected position.
+
+	The buttons attributes (inc. target) will not be recorded until
+        you draw it into the map.
+
+	CREATING A NEW BUTTON -----------------------------------------
+
+	To create a new button select the block type and a button panel
+	type in the @{"cell window" link CellWindow}. e.g. "Stone" and "Butn Out". Then set
+	the buttons attributes including its target.
+
+	Choose "@{"set all" link ToolsWindowSetAll}" in the @{"tools window" link ToolsWindow} then place the cell down in
+	the @{"level window" link LevelWindow}.
+
+	---------------------------------------------------------------
+
+	If you are running under 1.3 then this window is one of four
+	windows overlaid in this part of the screen. Click on the window
+	depth gadget to push the window to the back and bring the next
+	forward. The other windows available are....
+
+		@{" Cell window " link CellWindow}
+		@{" Lift window " link LiftWindow}
+		@{" Door window " link DoorWindow}
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node LiftWindow
+
+LIFT WINDOW
+
+	This unique feature of Hired Guns allows players, pushable blocks,
+	monsters and items to be moved up and down on hydraulic platforms.
+
+	A lift can be recognised by its red and white striped outer rim,
+	it is essentially a type of floor. There can be a maximum of 32 of
+	them in the map at one time.
+
+	A lift will rise and fall between a defined maximum and minimum
+	height at a fixed speed. When a lift reaches either end of its
+	travel it can be made to automatically switch direction.
+
+	A lift may be able to carry heavy objects (such as a player or
+	a pushable block), select the "carry" button to do this.
+	If a lift has a heavy object on it and does not have the "carry"
+	function enabled the lift will only be able to descend with its
+	load, it will stall otherwise.
+
+	The automove function allows the lift to remain stationary at
+	either end of its travel until a pushable block or player stands
+	on the lift. It will then rise or fall towards is opposite end of
+	travel.
+
+		@{" Minimum & maximum " link LiftWindowMinMax}		@{" Initial           " link LiftWindowInitial}
+		@{" Carry             " link LiftWindowCarry}		@{" At top            " link LiftWindowAtTop}
+		@{" Automove          " link LiftWindowAutomove}		@{" At bottom         " link LiftWindowAtBottom}
+
+	CREATING A NEW LIFT -------------------------------------------
+
+	To create a new lift select the "lift" floor type in the cell
+	window. Then set the buttons lift attributes.
+
+	Choose "@{"set all" link ToolsWindowSetAll}" in the @{"tools window" link ToolsWindow} then place the cell down in
+	the @{"level window" link LevelWindow}.
+
+	IMPORTANT
+
+	Be sure to place a column of "hydraulc" blocks under the lift to
+	support it. Otherwise stange things may happen during the game.
+
+	---------------------------------------------------------------
+
+	If you are running under 1.3 then this window is one of four
+	windows overlaid in this part of the screen. Click on the window
+	depth gadget to push the window to the back and bring the next
+	forward. The other windows available are....
+
+		@{" Cell window   " link CellWindow}
+		@{" Button window " link ButtonWindow}
+		@{" Door window   " link DoorWindow}
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node DoorWindow
+
+DOOR WINDOW
+
+	A door consists of two parts in a cell, the door itself (a type
+	of block) and a frame (an auxiliary block).
+
+	If a door is unlocked it will automatically open when a player
+        or a monster tries to pass through it. It will remain open for
+	a set @{"delay" link Main} time then close.
+
+	A door has three states...
+
+	   Unlocked :
+		Any monster or player can pass through.
+	   Locked requiring a key :
+		Only a player with the correct @{"key" link DoorWindowKey} can unlock the door.
+           Permanently locked :
+                When a door is locked and a @{"key" link DoorWindowKey} is not specified (@{"key" link DoorWindowKey}=0)
+		then this cannot be unlocked (see below for exception).
+
+	All doors can be locked/unlocked by a button. See @{"button window" link ButtonWindow}
+	for more details.
+
+	Note that a door can be locked in an open position. If this is
+        the case then only a button action can release the door.
+
+	CREATING A NEW DOOR -------------------------------------------
+
+	To create a new door, firstly decide on which direction the door
+        will face - north/south (-) or east/west (|). Set the approriate
+	block type in the @{"cell window" link CellWindow} as well as the frame in the
+	auxiliary field.
+
+	Set the doors attributes. The close delay is usually set at 18.
+
+	Choose "@{"set all" link ToolsWindowSetAll}" in the @{"tools window" link ToolsWindow} then place the cell down in
+	the @{"level window" link LevelWindow}.
+
+	---------------------------------------------------------------
+
+	If you are running under 1.3 then this window is one of four
+	windows overlaid in this part of the screen. Click on the window
+	depth gadget to push the window to the back and bring the next
+	forward. The other windows available are....
+
+		@{" Cell window   " link CellWindow}
+		@{" Button window " link ButtonWindow}
+		@{" Lift window   " link LiftWindow}
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node MenuItems
+
+MENU ITEMS
+
+		@{" New        " link MenuItemNew}
+
+		@{" Help       " link MenuItemHelp}
+
+		@{" Load       " link MenuItemLoad}
+
+		@{" Save       " link MenuItemSave}
+		@{" Save as... " link MenuItemSaveAs}
+
+		@{" Use map    " link MenuItemUseMap}
+
+		@{" Quit       " link MenuItemQuit}
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemNew
+
+MENU ITEMS
+  NEW
+
+	Using this menu item will reset all the map data. All data will
+	be lost.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemLoad
+
+MENU ITEMS
+  LOAD
+
+		@{" Load map...      " link MenuItemLoadMap}
+		@{" Load panels...   " link MenuItemLoadPanels}
+		@{" Load text...     " link MenuItemLoadText}
+		@{" Load horizons... " link MenuItemLoadHorizons}
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemSave
+
+MENU ITEMS
+  SAVE
+
+        This menu item will save the map data without asking for an
+	alternate file name.
+
+	This item will be ghosted out if a map has not been loaded or
+	saved.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemSaveAs
+
+MENU ITEMS
+  SAVE AS
+
+	Using this menu item will bring up file a requester. Enter a valid
+	filename of a map file. Please try to store your map files with a
+	".map" exentsion. e.g. "BigBuilding.map" or "Cave.map".
+
+	The map data will be saved under the specified filename.
+
+        The file will be about 150k long. It may be compressed using ProPack
+	type 1 compression, the editor and game will be able to load this
+	type of compressed file.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemUseMap
+
+MENU ITEMS
+  USE MAP
+
+	This is only useful to hard disk users. Using this menu item will
+	automatically save out the map over the game systems default map.
+
+	When the game is next played it will use this new map.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemQuit
+
+MENU ITEMS
+  USE QUIT
+
+	To leave the editor choose this menu item.
+
+	You will be warned if there is any unsaved data since all data will
+	be lost after leaving the editor.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemHelp
+
+MENU ITEMS
+  HELP
+
+	Runs this AmigaGuide database from within the editor.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemLoadMap
+
+MENU ITEMS
+  LOAD
+    LOAD MAP
+
+	Using this menu item will bring up file a requester. Enter a valid
+	filename of a map file. Please try to store your map files with a
+	".map" exentsion. e.g. "BigBuilding.map" or "Cave.map".
+
+	It is a good idea to create a directory for each map in which
+	you can keep the map itself, your @{"panels picture" link Main}, @{"conversations" link Main}
+	and @{"horizons picture" link Main}.
+
+	See the @{"example map" link ExampleMap} for more information on setting up working
+	directories for your maps.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemLoadPanels
+
+MENU ITEMS
+  LOAD
+    LOAD PANELS
+
+	Using this menu item will bring up file a requester. Enter a valid
+	filename of an IFF ILBM file.
+
+	The IFF file should be arranged like the panels.ilbm file in the
+	@{"example map" link ExampleMap} directory.
+
+	The panels will be processed and read into the map data. When you
+	save your map the panel graphics will be saved inside the file.
+
+	See the @{"text panels window" link TextPanelsWindow} for a display of the
+	currently loaded panels.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemLoadText
+
+MENU ITEMS
+  LOAD
+    LOAD TEXT
+
+	Using this menu item will bring up file a requester. Enter a valid
+	filename of a text file.
+
+	The file should be arranged like the conversations.txt file in the
+	@{"example map" link ExampleMap} directory.
+
+	The text will be processed and read into the map data. When you
+	save your map the text will be saved inside the file.
+@endnode
+
+@rem ***************************************************************************
+
+@node MenuItemLoadHorizons
+
+MENU ITEMS
+  LOAD
+    LOAD HORIZONS
+
+	Using this menu item will bring up file a requester. Enter a valid
+	filename of an IFF ILBM file.
+
+	The IFF file should be arranged like the horizons.ilbm file in the
+	@{"example map" link ExampleMap} directory.
+
+	The horizons will be processed and read into the map data. When you
+	save your map the horizon graphics will be saved inside the file.
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node GeneralProblems
+
+GENERAL PROBLEMS
+
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node ExampleMap
+
+EXAMPLE MAP
+
+@endnode
+
+@rem ***************************************************************************
+@rem ***************************************************************************
+@rem ***************************************************************************
+
+@node Keyboard
+
+KEYBOARD CONTROLS
+
+	+		Up a level
+	-		Down a level
+
+	Cursor keys	Move cursor
+
+	Help		Show this AmigaGuide database
+
+	1		Activate "@{"pick" link ToolsWindowPick}" tool
+	2		Activate "@{"set all" link ToolsWindowSetAll}" tool
+	3		Activate "@{"set block" link ToolsWindowSetBlock}" tool
+	4		Activate "@{"set water" link ToolsWindowSetWater}" tool
+	5		Activate "@{"set targt" link ToolsWindowSetTargt}" tool
+
+	Amiga x         @{"New" link MenuItemNew}
+	Amiga l		@{"Load map" link MenuItemLoadMap}
+	Amiga s		@{"Save" link MenuItemSave}
+	Amiga u		@{"Use map" link MenuItemUseMap}
+	Amiga q		@{"Quit" link MenuItemQuit}
+
+@endnode
+

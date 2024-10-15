@@ -1,0 +1,89 @@
+ASM =		genam
+
+################################################################################
+################################################################################
+################################################################################
+
+all:		front.dat \
+		frontcd32.dat \
+		aformat.dat \
+		aforce.dat \
+		preview.dat \
+		fillcd32.dat
+
+################################################################################
+
+front.dat:	front.cpr \
+		frontb.font \
+		front.mod \
+		fill.dat
+		join front.cpr frontb.font front.mod fill.dat as front.dat
+		compress p d front.dat
+		copy ram:test.rnc 3dgame:diskdata/disk1/front/Front.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Front.dat
+
+front.cpr:	front.s
+		$(ASM) front.s to Front.cpr
+		strip front.cpr 32 4
+
+frontb.font:	minimalfrontb.ilbm \
+		frontb.s
+		ilbm2raw -cmgb3M64N66r minimalfrontb.ilbm ram:frontb.bin
+		$(ASM) from frontb.s to FrontB.font
+		strip frontb.font 32 4
+
+fill.dat:	fill2.ilbm \
+		fill.s
+		ilbm2raw -mcf0,0,640,42 fill2.ilbm ram:fill.bin
+		$(ASM) from fill.s to Fill.dat
+		strip fill.dat 32 4
+
+################################################################################
+
+frontcd32.dat:	frontcd32.cpr \
+		frontb.font \
+		front.mod \
+		cursorcd32.hws
+		join frontcd32.cpr frontb.font front.mod cursorcd32.hws as FrontCD32.dat
+		copy FrontCD32.dat 3dgame:test/hiredgunscd32/front/Front.dat
+
+frontcd32.cpr:	frontcd32.s
+		$(ASM) frontcd32.s to FrontCD32.cpr
+		strip frontcd32.cpr 32 4
+
+fillcd32.dat:	fillcd32_test.ilbm \
+		fillcd32.s
+		ilbm2raw -cf0,0,640,400 fillcd32_test.ilbm ram:fillcd32.bin
+		$(ASM) from fillcd32.s to FillCD32.dat
+		strip fillcd32.dat 32 4
+		copy FillCD32.dat 3dgame:test/hiredgunscd32/front/Fill.dat
+
+cursorcd32.hws:	cursorcd32.ilbm \
+		cursorcd32.rexx
+		rx cursorcd32.rexx
+
+################################################################################
+
+aformat.dat:	aformat.ilbm \
+		aformat.s
+		ilbm2raw -b3cf0,0,640,212 aformat.ilbm AFormat.bin
+		$(ASM) AFormat.s
+		strip AFormat.dat 32 4
+		compress p d AFormat.dat
+		copy ram:test.rnc 3dgame:data/front.dat/AFormat.dat
+
+aforce.dat:	aforce.ilbm \
+		aforce.s
+		ilbm2raw -b3cf0,0,640,212 aforce.ilbm Aforce.bin
+		$(ASM) Aforce.s
+		strip Aforce.dat 32 4
+		compress p d Aforce.dat
+		copy ram:test.rnc 3dgame:data/front.dat/Aforce.dat
+
+preview.dat:	preview.ilbm \
+		preview.s
+		ilbm2raw -b3cf0,0,640,212 preview.ilbm Preview.bin
+		$(ASM) Preview.s
+		strip Preview.dat 32 4
+		compress p d Preview.dat
+		copy ram:test.rnc 3dgame:data/front.dat/Preview.dat

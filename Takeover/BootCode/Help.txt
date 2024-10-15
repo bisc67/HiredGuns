@@ -1,0 +1,29 @@
+Hi there.
+
+I've got bit of problem. :-(
+Basically Hired Guns ain't working on the CDTV from floppy.
+
+Its works fine with the HD installed version (being OS friendly),
+but as soon as I kiss exec goodbye then those damn level 2
+interrupts keep on comin'.
+
+At the moment I've bodged a fix. A custom bootblock that
+dismounts CD0 from the expansion.library mountlist.
+
+This seems to works fine. The only snag is that I can't search
+for the "CD0" name explicitly. The dn_Name entry of the device
+node structure looks like it contains a pointer to a BSTR name
+but it doesn't (or at least I think it doesn't). At the moment
+the code just removes whatever volume is at the end of the
+mountlist whuch just happens to be CD0 on the CDTV, but this is
+not very 'nice', can anyone help?
+
+(Jolyon's cdon/off code in the flist works fine but takes up too
+much space. Yes my disks ARE that full. Value for money or what!)
+
+I'll binmail the code, smakes and all for any kind souls perusal.
+:-)
+
+Thanks in advance,
+
+    Scott J.

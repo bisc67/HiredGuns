@@ -1,0 +1,3 @@
+execute hiredgunsassigns
+cd work:programmingutils/cd32/iso9660tools/isocd
+isocd -l3dgame:test/hiredgunscd32.layout -ccd32.tm

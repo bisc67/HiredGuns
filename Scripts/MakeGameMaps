@@ -1,0 +1,22 @@
+.key opt1
+.bra {
+.ket }
+
+if exists ram:makemaps
+	delete >nil: ram:makemaps all
+endif
+makedir >nil: ram:makemaps
+
+list >ram:makemaps/buildfile 3dgame:maps/game files pat "#?.map" all nohead lformat "execute 3dgame:scripts/grablocn %S%S" all
+sort from ram:makemaps/buildfile to ram:makemaps/buildfile_sorted
+execute ram:makemaps/buildfile_sorted
+
+execute 3dgame:c/compress p d ram:makemaps/temp2
+
+copy ram:test.rnc 3dgame:diskdata/disk2/world/Locations.dat
+copy ram:test.rnc 3dgame:test/hiredguns/world/Locations.dat
+
+delete 3dgame:test/hiredguns/maps all
+makedir 3dgame:test/hiredguns/Maps
+copy 3dgame:diskdata/disk3/maps 3dgame:test/hiredguns/maps
+copy 3dgame:diskdata/disk4/maps 3dgame:test/hiredguns/maps

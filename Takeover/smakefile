@@ -1,0 +1,47 @@
+ASM =		genam
+LINK =		slink
+
+################################################################################
+
+OBJECTS =	takeover.o
+
+LIBRARIES =	lib:amiga.lib
+
+################################################################################
+
+takeover :	takeover.o \
+		takeover.dat
+		$(LINK) from $(OBJECTS) to Takeover lib $(LIBRARIES)
+		copy takeover "3dgame:test/hiredgunscd32/c/SystemTakeover"
+		execute 3dgame:c/compress p a Takeover
+		copy ram:test.rnc Takeover
+		copy takeover "3dgame:diskdata/disk1/c/SystemTakeover"
+		copy takeover "3dgame:diskdata/diskdemo/c/SystemTakeover"
+		copy takeover "3dgame:diskdata/diskrollingdemo/c/SystemTakeover"
+		copy takeover "3dgame:diskdata/diskedit1/c/SystemTakeover"
+		copy takeover "3dgame:test/hiredguns/c/SystemTakeover"
+		copy takeover "3dgame:test/hiredgunseditor/c/SystemTakeover"
+		copy takeover "3dgame:test/hiredgunsdemo/c/SystemTakeover"
+
+takeover.o :	takeover.s \
+		interrupts&resources.s \
+		memory.s \
+		windows.s \
+		library.s \
+		jumpy.s \
+		takeover.i \
+		macros.i \
+		screens.s \
+		checksum.s
+		$(ASM) Takeover.s to takeover.o
+
+takeover.dat :	graphics.ilbm \
+		graphics.script
+		ilbm2raw -c -@graphics.script graphics.ilbm Takeover.dat
+		copy ram:test.rnc "3dgame:test/hiredgunscd32/c/SystemTakeover.dat"
+		execute 3dgame:c/compress p d takeover.dat
+		copy ram:test.rnc "3dgame:diskdata/disk1/c/SystemTakeover.dat"
+		copy ram:test.rnc "3dgame:diskdata/diskdemo/c/SystemTakeover.dat"
+		copy ram:test.rnc "3dgame:diskdata/disk7/c/SystemTakeover.dat"
+		copy ram:test.rnc "3dgame:test/hiredguns/c/SystemTakeover.dat"
+		copy ram:test.rnc "3dgame:test/hiredgunsdemo/c/SystemTakeover.dat"

@@ -1,0 +1,141 @@
+################################################################################
+#
+# Monsters
+#
+################################################################################
+
+all:	gfx/monster01.gfx\
+	gfx/monster02.gfx\
+	gfx/monster03.gfx\
+	gfx/monster04.gfx\
+	gfx/monster05.gfx\
+	gfx/monster06.gfx\
+	gfx/monster07.gfx\
+	gfx/monster08.gfx\
+	gfx/monster09.gfx\
+	gfx/monster10.gfx\
+	gfx/monster11.gfx\
+	gfx/monster12.gfx\
+	gfx/monster13.gfx\
+	gfx/monster14.gfx\
+	gfx/monster15.gfx\
+	gfx/monster16.gfx\
+	gfx/monster17.gfx\
+	gfx/monster18.gfx\
+	gfx/monster19.gfx\
+	bob/20_gargoyle.bob
+	delete 3dgame:diskdata/disk3/monstersgfx all
+        makedir 3dgame:diskdata/disk3/MonstersGfx
+	copy gfx 3dgame:diskdata/disk3/monstersgfx
+	delete 3dgame:diskdata/disk4/monstersgfx all
+	makedir 3dgame:diskdata/disk4/MonstersGfx
+	copy gfx 3dgame:diskdata/disk4/monstersgfx
+	delete 3dgame:diskdata/diskedit2/monstersgfx all
+	makedir 3dgame:diskdata/diskedit2/MonstersGfx
+	copy gfx 3dgame:diskdata/diskedit2/monstersgfx
+	delete work:games/hiredguns/monstersgfx all
+	makedir work:games/hiredguns/MonstersGfx
+	copy gfx work:games/hiredguns/monstersgfx
+	delete work:games/hiredgunseditor/monstersgfx all
+	makedir work:games/hiredgunseditor/MonstersGfx
+	copy gfx work:games/hiredgunseditor/monstersgfx
+
+################################################################################
+
+gfx/monster01.gfx:	01_leahdile
+		convert 01_leahdile
+		delete gfx/Monster01.gfx
+		rename gfx/01_leahdile.gfx gfx/Monster01.gfx
+
+gfx/monster02.gfx:	02_sentrygun
+		convert 02_sentrygun
+		delete gfx/Monster02.gfx
+		rename gfx/02_sentrygun.gfx gfx/Monster02.gfx
+
+gfx/monster03.gfx:	03_rahl
+		convert 03_rahl
+		delete gfx/Monster03.gfx
+		rename gfx/03_rahl.gfx gfx/Monster03.gfx
+
+gfx/monster04.gfx:	04_skeleton
+		convert 04_skeleton
+		delete gfx/Monster04.gfx
+		rename gfx/04_skeleton.gfx gfx/Monster04.gfx
+
+gfx/monster05.gfx:	05_ahl-cim
+		convert 05_ahl-cim
+		delete gfx/Monster05.gfx
+		rename gfx/05_ahl-cim.gfx gfx/Monster05.gfx
+
+gfx/monster06.gfx:	06_morg
+		convert 06_morg
+		delete gfx/Monster06.gfx
+		rename gfx/06_morg.gfx gfx/Monster06.gfx
+
+gfx/monster07.gfx:	07_druid
+		convert 07_druid
+		delete gfx/Monster07.gfx
+		rename gfx/07_druid.gfx gfx/Monster07.gfx
+
+gfx/monster08.gfx:	08_lemming
+		convert 08_lemming
+		delete gfx/Monster08.gfx
+		rename gfx/08_lemming.gfx gfx/Monster08.gfx
+
+gfx/monster09.gfx:	09_hadrahl
+		convert 09_hadrahl
+		delete gfx/Monster09.gfx
+		rename gfx/09_hadrahl.gfx gfx/Monster09.gfx
+
+gfx/monster10.gfx:	10_bat
+		convert 10_bat
+		delete gfx/Monster10.gfx
+		rename gfx/10_bat.gfx gfx/Monster10.gfx
+
+gfx/monster11.gfx:	11_hoverbot
+		convert 11_hoverbot
+		delete gfx/Monster11.gfx
+		rename gfx/11_hoverbot.gfx gfx/Monster11.gfx
+
+gfx/monster12.gfx:	12_lizard
+		convert 12_lizard
+		delete gfx/Monster12.gfx
+		rename gfx/12_lizard.gfx gfx/Monster12.gfx
+
+gfx/monster13.gfx:	13_squirrel
+		convert 13_squirrel
+		delete gfx/Monster13.gfx
+		rename gfx/13_squirrel.gfx gfx/Monster13.gfx
+
+gfx/monster14.gfx:	14_elyste
+		convert 14_elyste
+		delete gfx/Monster14.gfx
+		rename gfx/14_elyste.gfx gfx/Monster14.gfx
+
+gfx/monster15.gfx:	15_ed-209
+		convert 15_ed-209
+		delete gfx/Monster15.gfx
+		rename gfx/15_ed-209.gfx gfx/Monster15.gfx
+
+gfx/monster16.gfx:	16_puppy
+		convert 16_puppy
+		delete gfx/Monster16.gfx
+		rename gfx/16_puppy.gfx gfx/Monster16.gfx
+
+gfx/monster17.gfx:	17_shark
+		convert 17_shark
+		delete gfx/Monster17.gfx
+		rename gfx/17_shark.gfx gfx/Monster17.gfx
+
+gfx/monster18.gfx:	18_rats
+		convert 18_rats
+		delete gfx/Monster18.gfx
+		rename gfx/18_rats.gfx gfx/Monster18.gfx
+
+gfx/monster19.gfx:	19_babygargoyle
+		convert 19_babygargoyle
+		delete gfx/Monster19.gfx
+		rename gfx/19_babygargoyle.gfx gfx/Monster19.gfx
+
+bob/20_gargoyle.bob:	20_gargoyle
+		convertbig 20_gargoyle

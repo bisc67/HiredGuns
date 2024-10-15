@@ -1,0 +1,60 @@
+ASM =		genam
+
+################################################################################
+
+all:		outro.dat \
+		text_fre.dat \
+		text_ger.dat \
+		text_spa.dat \
+		text_ita.dat
+
+outro.dat:	outro.cpr \
+		outro.mod \
+		mushroom.pic\
+		backdrop.pic\
+		3dgame:graphics/misc/raw/GameFont.bin\
+		3dgame:graphics/misc/raw/Fill2.bin\
+		text.dat
+		join outro.cpr outro.mod mushroom.pic backdrop.pic 3dgame:graphics/misc/raw/GameFont.bin 3dgame:diskdata/disk2/game/Foreign.font 3dgame:graphics/misc/raw/Fill2.bin text.dat as outro.dat
+		compress p d outro.dat
+		copy ram:test.rnc 3dgame:diskdata/disk5/front/Outro.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Outro.dat
+
+outro.cpr:	outro.s
+		$(ASM) outro.s to outro.cpr
+		strip outro.cpr 32 4
+
+backdrop.pic:	backdrop.ilbm
+		ilbm2raw -f0,0,320,212 backdrop.ilbm Backdrop.pic
+
+text.dat:	text.s
+		$(ASM) text.s to text.dat
+		strip text.dat 32 4
+
+text_fre.dat:	text_fre.s
+		$(ASM) text_fre.s to text_fre.dat
+		strip text_fre.dat 32 4
+		compress p d text_fre.dat
+		copy ram:test.rnc 3dgame:diskdata/disk5/front/Outro.fre
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Outro.fre
+
+text_ger.dat:	text_ger.s
+		$(ASM) text_ger.s to text_ger.dat
+		strip text_ger.dat 32 4
+		compress p d text_ger.dat
+		copy ram:test.rnc 3dgame:diskdata/disk5/front/Outro.ger
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Outro.ger
+
+text_ita.dat:	text_ita.s
+		$(ASM) text_ita.s to text_ita.dat
+		strip text_ita.dat 32 4
+		compress p d text_ita.dat
+		copy ram:test.rnc 3dgame:diskdata/disk5/front/Outro.ita
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Outro.ita
+
+text_spa.dat:	text_spa.s
+		$(ASM) text_spa.s to text_spa.dat
+		strip text_spa.dat 32 4
+		compress p d text_spa.dat
+		copy ram:test.rnc 3dgame:diskdata/disk5/front/Outro.spa
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Outro.spa

@@ -1,0 +1,148 @@
+3dgame:test/hiredgunscd32/world/locations.dat:	3dgame:test/hiredgunscd32/maps/01.map \
+						3dgame:test/hiredgunscd32/maps/02.map \
+						3dgame:test/hiredgunscd32/maps/03.map \
+						3dgame:test/hiredgunscd32/maps/04.map \
+						3dgame:test/hiredgunscd32/maps/05.map \
+						3dgame:test/hiredgunscd32/maps/06.map \
+						3dgame:test/hiredgunscd32/maps/07.map \
+						3dgame:test/hiredgunscd32/maps/08.map \
+						3dgame:test/hiredgunscd32/maps/09.map \
+						3dgame:test/hiredgunscd32/maps/10.map \
+						3dgame:test/hiredgunscd32/maps/11.map \
+						3dgame:test/hiredgunscd32/maps/12.map \
+						3dgame:test/hiredgunscd32/maps/14.map \
+						3dgame:test/hiredgunscd32/maps/15.map \
+						3dgame:test/hiredgunscd32/maps/17.map \
+						3dgame:test/hiredgunscd32/maps/18.map \
+						3dgame:test/hiredgunscd32/maps/19.map \
+						3dgame:test/hiredgunscd32/maps/20.map \
+						3dgame:test/hiredgunscd32/maps/21.map \
+						3dgame:test/hiredgunscd32/maps/23.map \
+						3dgame:test/hiredgunscd32/maps/25.map \
+						3dgame:test/hiredgunscd32/maps/26.map \
+						3dgame:test/hiredgunscd32/maps/27.map \
+						3dgame:test/hiredgunscd32/maps/28.map \
+						3dgame:test/hiredgunscd32/maps/29.map \
+						3dgame:test/hiredgunscd32/maps/30.map \
+						3dgame:test/hiredgunscd32/maps/31.map \
+						3dgame:test/hiredgunscd32/maps/33.map \
+						3dgame:test/hiredgunscd32/maps/34.map \
+						3dgame:test/hiredgunscd32/maps/35.map \
+						3dgame:test/hiredgunscd32/maps/37.map \
+						3dgame:test/hiredgunscd32/maps/38.map \
+						3dgame:test/hiredgunscd32/maps/39.map \
+						3dgame:test/hiredgunscd32/maps/40.map \
+						3dgame:test/hiredgunscd32/maps/41.map \
+						3dgame:test/hiredgunscd32/maps/42.map \
+						3dgame:test/hiredgunscd32/maps/43.map \
+						3dgame:test/hiredgunscd32/maps/44.map \
+						3dgame:test/hiredgunscd32/maps/45.map \
+						3dgame:test/hiredgunscd32/maps/46.map \
+						3dgame:test/hiredgunscd32/maps/47.map
+						execute 3dgame:scripts/makecd32gamemaps
+
+3dgame:test/hiredgunscd32/maps/01.map:	game/Map01_ArtificialIsland/01.map
+					copy game/Map01_ArtificialIsland/01.map 3dgame:test/hiredgunscd32/maps/01.map
+
+3dgame:test/hiredgunscd32/maps/02.map:	game/Map02_CaveSystem/02.map
+					copy game/Map02_CaveSystem/02.map 3dgame:test/hiredgunscd32/maps/02.map
+
+3dgame:test/hiredgunscd32/maps/03.map:	game/Map03_LabTestSite/03.map
+					copy game/Map03_LabTestSite/03.map 3dgame:test/hiredgunscd32/maps/03.map
+
+3dgame:test/hiredgunscd32/maps/04.map:	game/Map04_Laboratory/04.map
+					copy game/Map04_Laboratory/04.map 3dgame:test/hiredgunscd32/maps/04.map
+
+3dgame:test/hiredgunscd32/maps/05.map:	game/Map05_Refinery/05.map
+					copy game/Map05_Refinery/05.map 3dgame:test/hiredgunscd32/maps/05.map
+
+3dgame:test/hiredgunscd32/maps/06.map:	game/Map06_UrbanDevelopment/06.map
+					copy game/Map06_UrbanDevelopment/06.map 3dgame:test/hiredgunscd32/maps/06.map
+
+3dgame:test/hiredgunscd32/maps/07.map:	game/Map07_AbandonedDepot/07.map
+					copy game/Map07_AbandonedDepot/07.map 3dgame:test/hiredgunscd32/maps/07.map
+
+3dgame:test/hiredgunscd32/maps/08.map:	game/Map08_Tomb/08.map
+					copy game/Map08_Tomb/08.map 3dgame:test/hiredgunscd32/maps/08.map
+
+3dgame:test/hiredgunscd32/maps/09.map:	game/Map09_Tomb/09.map
+					copy game/Map09_Tomb/09.map 3dgame:test/hiredgunscd32/maps/09.map
+
+3dgame:test/hiredgunscd32/maps/10.map:	game/Map10_AmmoDepot/10.map
+					copy game/Map10_AmmoDepot/10.map 3dgame:test/hiredgunscd32/maps/10.map
+
+3dgame:test/hiredgunscd32/maps/11.map:	game/Map11_SatelliteUplink/11.map
+					copy game/Map11_SatelliteUplink/11.map 3dgame:test/hiredgunscd32/maps/11.map
+
+3dgame:test/hiredgunscd32/maps/12.map:	game/Map12_DefenseBattery/12.map
+					copy game/Map12_DefenseBattery/12.map 3dgame:test/hiredgunscd32/maps/12.map
+
+3dgame:test/hiredgunscd32/maps/14.map:	game/Map14_Tomb/14.map
+					copy game/Map14_Tomb/14.map 3dgame:test/hiredgunscd32/maps/14.map
+
+3dgame:test/hiredgunscd32/maps/15.map:	game/Map15_Tomb/15.map
+					copy game/Map15_Tomb/15.map 3dgame:test/hiredgunscd32/maps/15.map
+
+3dgame:test/hiredgunscd32/maps/17.map:	game/Map17_OperationCentre/17.map
+					copy game/Map17_OperationCentre/17.map 3dgame:test/hiredgunscd32/maps/17.map
+
+3dgame:test/hiredgunscd32/maps/18.map:	game/Map18_FusionReactor/18.map
+					copy game/Map18_FusionReactor/18.map 3dgame:test/hiredgunscd32/maps/18.map
+
+3dgame:test/hiredgunscd32/maps/19.map:	game/Map19_DesalinationPlant/19.map
+					copy game/Map19_DesalinationPlant/19.map 3dgame:test/hiredgunscd32/maps/19.map
+
+3dgame:test/hiredgunscd32/maps/20.map:	game/Map20_UrbanDevelopment/20.map
+					copy game/Map20_UrbanDevelopment/20.map 3dgame:test/hiredgunscd32/maps/20.map
+
+3dgame:test/hiredgunscd32/maps/21.map:	game/Map21_Spaceport/21.map
+					copy game/Map21_Spaceport/21.map 3dgame:test/hiredgunscd32/maps/21.map
+
+3dgame:test/hiredgunscd32/maps/23.map:	game/Map23_1pl/23.map
+					copy game/Map23_1pl/23.map 3dgame:test/hiredgunscd32/maps/23.map
+3dgame:test/hiredgunscd32/maps/25.map:	game/Map25_1pl/25.map
+					copy game/Map25_1pl/25.map 3dgame:test/hiredgunscd32/maps/25.map
+3dgame:test/hiredgunscd32/maps/26.map:	game/Map26_1pl/26.map
+					copy game/Map26_1pl/26.map 3dgame:test/hiredgunscd32/maps/26.map
+3dgame:test/hiredgunscd32/maps/27.map:	game/Map27_1pl/27.map
+					copy game/Map27_1pl/27.map 3dgame:test/hiredgunscd32/maps/27.map
+
+3dgame:test/hiredgunscd32/maps/28.map:	game/Map28_2pl/28.map
+					copy game/Map28_2pl/28.map 3dgame:test/hiredgunscd32/maps/28.map
+3dgame:test/hiredgunscd32/maps/29.map:	game/Map29_2pl/29.map
+					copy game/Map29_2pl/29.map 3dgame:test/hiredgunscd32/maps/29.map
+3dgame:test/hiredgunscd32/maps/30.map:	game/Map30_2pl/30.map
+					copy game/Map30_2pl/30.map 3dgame:test/hiredgunscd32/maps/30.map
+3dgame:test/hiredgunscd32/maps/31.map:	game/Map31_2pl/31.map
+					copy game/Map31_2pl/31.map 3dgame:test/hiredgunscd32/maps/31.map
+
+3dgame:test/hiredgunscd32/maps/33.map:	game/Map33_3pl/33.map
+					copy game/Map33_3pl/33.map 3dgame:test/hiredgunscd32/maps/33.map
+3dgame:test/hiredgunscd32/maps/34.map:	game/Map34_3pl/34.map
+					copy game/Map34_3pl/34.map 3dgame:test/hiredgunscd32/maps/34.map
+3dgame:test/hiredgunscd32/maps/35.map:	game/Map35_3pl/35.map
+					copy game/Map35_3pl/35.map 3dgame:test/hiredgunscd32/maps/35.map
+3dgame:test/hiredgunscd32/maps/37.map:	game/Map37_3pl/37.map
+					copy game/Map37_3pl/37.map 3dgame:test/hiredgunscd32/maps/37.map
+
+3dgame:test/hiredgunscd32/maps/38.map:	game/Map38_4pl/38.map
+					copy game/Map38_4pl/38.map 3dgame:test/hiredgunscd32/maps/38.map
+3dgame:test/hiredgunscd32/maps/39.map:	game/Map39_4pl/39.map
+					copy game/Map39_4pl/39.map 3dgame:test/hiredgunscd32/maps/39.map
+3dgame:test/hiredgunscd32/maps/40.map:	game/Map40_4pl/40.map
+					copy game/Map40_4pl/40.map 3dgame:test/hiredgunscd32/maps/40.map
+3dgame:test/hiredgunscd32/maps/41.map:	game/Map41_4pl/41.map
+					copy game/Map41_4pl/41.map 3dgame:test/hiredgunscd32/maps/41.map
+3dgame:test/hiredgunscd32/maps/42.map:	game/Map42_4pl/42.map
+					copy game/Map42_4pl/42.map 3dgame:test/hiredgunscd32/maps/42.map
+
+3dgame:test/hiredgunscd32/maps/43.map:	game/Map43_Training/43.map
+					copy game/Map43_Training/43.map 3dgame:test/hiredgunscd32/maps/43.map
+3dgame:test/hiredgunscd32/maps/44.map:	game/Map44_Training/44.map
+					copy game/Map44_Training/44.map 3dgame:test/hiredgunscd32/maps/44.map
+3dgame:test/hiredgunscd32/maps/45.map:	game/Map45_Training/45.map
+					copy game/Map45_Training/45.map 3dgame:test/hiredgunscd32/maps/45.map
+3dgame:test/hiredgunscd32/maps/46.map:	game/Map46_Training/46.map
+					copy game/Map46_Training/46.map 3dgame:test/hiredgunscd32/maps/46.map
+3dgame:test/hiredgunscd32/maps/47.map:	game/Map47_Training/47.map
+					copy game/Map47_Training/47.map 3dgame:test/hiredgunscd32/maps/47.map

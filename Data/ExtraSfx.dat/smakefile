@@ -1,0 +1,20 @@
+ASM =		genam
+
+################################################################################
+
+all:		extrasfx.dat \
+		extrasfxcd32.dat \
+
+extrasfx.dat:	extrasfx.s
+		$(ASM) from extrasfx.s to ExtraSfx.dat
+		strip ExtraSfx.dat 32 4
+		execute 3dgame:scripts/compress p d ExtraSfx.dat
+		copy ram:test.rnc 3dgame:diskdata/disk5/game/ExtraSfx.dat
+		copy ram:test.rnc 3dgame:diskdata/diskedit1/game/ExtraSfx.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/game/ExtraSfx.dat
+		copy ram:test.rnc 3dgame:test/hiredgunseditor/game/ExtraSfx.dat
+
+extrasfxcd32.dat:	extrasfxcd32.s
+			$(ASM) from extrasfxcd32.s to ExtraSfxCD32.dat
+			strip ExtraSfxcd32.dat 32 4
+			copy ExtraSfxcd32.dat 3dgame:test/hiredgunscd32/game/ExtraSfx.dat

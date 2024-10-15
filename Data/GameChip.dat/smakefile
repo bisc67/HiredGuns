@@ -1,0 +1,54 @@
+ASM =		genam
+
+all:		gamechipCD32.dat
+
+#		gamechip.dat \
+
+################################################################################
+
+gamechip.dat:	misc.sfx \
+		sprites.hws \
+		fireeffects.hws
+		join misc.sfx sprites.hws fireeffects.hws as gamechip.dat
+		execute 3dgame:c/compress p d gamechip.dat
+		copy ram:text.rnc gamechip.dat
+		copy ram:text.rnc 3dgame:diskdata/disk2/game/GameChip.dat
+		copy ram:text.rnc 3dgame:diskdata/diskedit2/game/GameChip.dat
+		copy ram:text.rnc 3dgame:diskdata/diskdemo/game/GameChip.dat
+		copy ram:text.rnc 3dgame:diskdata/diskrollingdemo/game/GameChip.dat
+		copy ram:text.rnc 3dgame:test/hiredguns/game/GameChip.dat
+		copy ram:text.rnc 3dgame:test/hiredgunseditor/game/GameChip.dat
+
+sprites.hws :	sprites.ilbm
+		execute sprites.script
+		$(ASM) from sprites.s to Sprites.hws
+		strip sprites.hws 32 4
+
+fireeffects.hws:	fireeffects.s \
+		fireeffects.ilbm
+		execute fireeffects.script
+		$(ASM) from fireeffects.s to FireEffects.hws
+		strip fireeffects.hws 32 4
+
+################################################################################
+
+gamechipcd32.dat:	misc.sfx \
+			spritescd32.hws \
+			fireeffectscd32.hws
+			join misc.sfx spritescd32.hws fireeffectscd32.hws as Gamechipcd32.dat
+			copy gamechipcd32.dat 3dgame:test/hiredgunscd32/game/GameChip.dat
+
+spritescd32.hws :	sprites.ilbm \
+			spritescd32.rexx
+			rx spritescd32.rexx
+#			execute spritescd32.script
+#			$(ASM) from spritescd32.s to SpritesCD32.hws
+#			strip spritescd32.hws 32 4
+
+fireeffectscd32.hws:	fireeffectscd32.s \
+			fireeffectscd32.ilbm \
+			fireeffectscd32.rexx
+			rx fireeffectscd32.rexx
+#			execute fireeffectscd32.script
+			$(ASM) from fireeffectscd32.s to FireEffectsCD32.hws
+			strip fireeffectscd32.hws 32 4

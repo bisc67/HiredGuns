@@ -1,0 +1,230 @@
+3dgame:diskdata/disk2/world/locations.dat:	game/Map01_ArtificialIsland/01.rnc\
+						game/Map02_CaveSystem/02.rnc\
+						game/Map03_LabTestSite/03.rnc\
+						game/Map04_Laboratory/04.rnc\
+						game/Map05_Refinery/05.rnc\
+						game/Map06_UrbanDevelopment/06.rnc\
+						game/Map07_AbandonedDepot/07.rnc\
+						game/Map08_Tomb/08.rnc\
+						game/Map09_Tomb/09.rnc\
+						game/Map10_AmmoDepot/10.rnc\
+						game/Map11_SatelliteUplink/11.rnc\
+						game/Map12_DefenseBattery/12.rnc\
+						game/Map14_Tomb/14.rnc\
+						game/Map15_Tomb/15.rnc\
+						game/Map17_OperationCentre/17.rnc\
+						game/Map18_FusionReactor/18.rnc\
+						game/Map19_DesalinationPlant/19.rnc\
+						game/Map20_UrbanDevelopment/20.rnc\
+						game/Map21_Spaceport/21.rnc\
+						game/Map23_1pl/23.rnc\
+						game/Map25_1pl/25.rnc\
+						game/Map26_1pl/26.rnc\
+						game/Map27_1pl/27.rnc\
+						game/Map28_2pl/28.rnc\
+						game/Map29_2pl/29.rnc\
+						game/Map30_2pl/30.rnc\
+						game/Map31_2pl/31.rnc\
+						game/Map33_3pl/33.rnc\
+						game/Map34_3pl/34.rnc\
+						game/Map35_3pl/35.rnc\
+						game/Map37_3pl/37.rnc\
+						game/Map38_4pl/38.rnc\
+						game/Map39_4pl/39.rnc\
+						game/Map40_4pl/40.rnc\
+						game/Map41_4pl/41.rnc\
+						game/Map42_4pl/42.rnc\
+						game/Map43_Training/43.rnc\
+						game/Map44_Training/44.rnc\
+						game/Map45_Training/45.rnc\
+						game/Map46_Training/46.rnc\
+						game/Map47_Training/47.rnc
+						execute 3dgame:scripts/makegamemaps
+
+game/Map01_ArtificialIsland/01.rnc:	game/Map01_ArtificialIsland/01.map
+					execute 3dgame:c/compress p d game/Map01_ArtificialIsland/01.map
+					copy ram:test.rnc game/Map01_ArtificialIsland/01.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/01.map
+
+game/Map02_CaveSystem/02.rnc:		game/Map02_CaveSystem/02.map
+					execute 3dgame:c/compress p d game/Map02_CaveSystem/02.map
+					copy ram:test.rnc game/Map02_CaveSystem/02.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/02.map
+
+game/Map03_LabTestSite/03.rnc:		game/Map03_LabTestSite/03.map
+					execute 3dgame:c/compress p d game/Map03_LabTestSite/03.map
+					copy ram:test.rnc game/Map03_LabTestSite/03.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/03.map
+
+game/Map04_Laboratory/04.rnc:		game/Map04_Laboratory/04.map
+					execute 3dgame:c/compress p d game/Map04_Laboratory/04.map
+					copy ram:test.rnc game/Map04_Laboratory/04.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/04.map
+
+game/Map05_Refinery/05.rnc:		game/Map05_Refinery/05.map
+					execute 3dgame:c/compress p d game/Map05_Refinery/05.map
+					copy ram:test.rnc game/Map05_Refinery/05.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/05.map
+
+game/Map06_UrbanDevelopment/06.rnc:	game/Map06_UrbanDevelopment/06.map
+					execute 3dgame:c/compress p d game/Map06_UrbanDevelopment/06.map
+					copy ram:test.rnc game/Map06_UrbanDevelopment/06.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/06.map
+
+game/Map07_AbandonedDepot/07.rnc:	game/Map07_AbandonedDepot/07.map
+					execute 3dgame:c/compress p d game/Map07_AbandonedDepot/07.map
+					copy ram:test.rnc game/Map07_AbandonedDepot/07.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/07.map
+
+game/Map08_Tomb/08.rnc:			game/Map08_Tomb/08.map
+					execute 3dgame:c/compress p d game/Map08_Tomb/08.map
+					copy ram:test.rnc game/Map08_Tomb/08.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/08.map
+
+game/Map09_Tomb/09.rnc:			game/Map09_Tomb/09.map
+					execute 3dgame:c/compress p d game/Map09_Tomb/09.map
+					copy ram:test.rnc game/Map09_Tomb/09.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/09.map
+
+game/Map10_AmmoDepot/10.rnc:		game/Map10_AmmoDepot/10.map
+					execute 3dgame:c/compress p d game/Map10_AmmoDepot/10.map
+					copy ram:test.rnc game/Map10_AmmoDepot/10.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/10.map
+
+game/Map11_SatelliteUplink/11.rnc:	game/Map11_SatelliteUplink/11.map
+					execute 3dgame:c/compress p d game/Map11_SatelliteUplink/11.map
+					copy ram:test.rnc game/Map11_SatelliteUplink/11.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/11.map
+
+game/Map12_DefenseBattery/12.rnc:	game/Map12_DefenseBattery/12.map
+					execute 3dgame:c/compress p d game/Map12_DefenseBattery/12.map
+					copy ram:test.rnc game/Map12_DefenseBattery/12.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/12.map
+
+game/Map14_Tomb/14.rnc:			game/Map14_Tomb/14.map
+					execute 3dgame:c/compress p d game/Map14_Tomb/14.map
+					copy ram:test.rnc game/Map14_Tomb/14.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/14.map
+
+game/Map15_Tomb/15.rnc:			game/Map15_Tomb/15.map
+					execute 3dgame:c/compress p d game/Map15_Tomb/15.map
+					copy ram:test.rnc game/Map15_Tomb/15.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/15.map
+
+game/Map17_OperationCentre/17.rnc:	game/Map17_OperationCentre/17.map
+					execute 3dgame:c/compress p d game/Map17_OperationCentre/17.map
+					copy ram:test.rnc game/Map17_OperationCentre/17.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/17.map
+
+game/Map18_FusionReactor/18.rnc:	game/Map18_FusionReactor/18.map
+					execute 3dgame:c/compress p d game/Map18_FusionReactor/18.map
+					copy ram:test.rnc game/Map18_FusionReactor/18.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/18.map
+
+game/Map19_DesalinationPlant/19.rnc:	game/Map19_DesalinationPlant/19.map
+					execute 3dgame:c/compress p d game/Map19_DesalinationPlant/19.map
+					copy ram:test.rnc game/Map19_DesalinationPlant/19.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/19.map
+
+game/Map20_UrbanDevelopment/20.rnc:	game/Map20_UrbanDevelopment/20.map
+					execute 3dgame:c/compress p d game/Map20_UrbanDevelopment/20.map
+					copy ram:test.rnc game/Map20_UrbanDevelopment/20.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/20.map
+
+game/Map21_Spaceport/21.rnc:		game/Map21_Spaceport/21.map
+					execute 3dgame:c/compress p d game/Map21_Spaceport/21.map
+					copy ram:test.rnc game/Map21_Spaceport/21.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/21.map
+
+game/Map23_1pl/23.rnc:			game/Map23_1pl/23.map
+					execute 3dgame:c/compress p d game/Map23_1pl/23.map
+					copy ram:test.rnc game/Map23_1pl/23.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/23.map
+game/Map25_1pl/25.rnc:			game/Map25_1pl/25.map
+					execute 3dgame:c/compress p d game/Map25_1pl/25.map
+					copy ram:test.rnc game/Map25_1pl/25.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/25.map
+game/Map26_1pl/26.rnc:			game/Map26_1pl/26.map
+					execute 3dgame:c/compress p d game/Map26_1pl/26.map
+					copy ram:test.rnc game/Map26_1pl/26.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/26.map
+game/Map27_1pl/27.rnc:			game/Map27_1pl/27.map
+					execute 3dgame:c/compress p d game/Map27_1pl/27.map
+					copy ram:test.rnc game/Map27_1pl/27.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/27.map
+
+game/Map28_2pl/28.rnc:			game/Map28_2pl/28.map
+					execute 3dgame:c/compress p d game/Map28_2pl/28.map
+					copy ram:test.rnc game/Map28_2pl/28.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/28.map
+game/Map29_2pl/29.rnc:			game/Map29_2pl/29.map
+					execute 3dgame:c/compress p d game/Map29_2pl/29.map
+					copy ram:test.rnc game/Map29_2pl/29.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/29.map
+game/Map30_2pl/30.rnc:			game/Map30_2pl/30.map
+					execute 3dgame:c/compress p d game/Map30_2pl/30.map
+					copy ram:test.rnc game/Map30_2pl/30.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/30.map
+game/Map31_2pl/31.rnc:			game/Map31_2pl/31.map
+					execute 3dgame:c/compress p d game/Map31_2pl/31.map
+					copy ram:test.rnc game/Map31_2pl/31.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/31.map
+
+game/Map33_3pl/33.rnc:			game/Map33_3pl/33.map
+					execute 3dgame:c/compress p d game/Map33_3pl/33.map
+					copy ram:test.rnc game/Map33_3pl/33.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/33.map
+game/Map34_3pl/34.rnc:			game/Map34_3pl/34.map
+					execute 3dgame:c/compress p d game/Map34_3pl/34.map
+					copy ram:test.rnc game/Map34_3pl/34.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/34.map
+game/Map35_3pl/35.rnc:			game/Map35_3pl/35.map
+					execute 3dgame:c/compress p d game/Map35_3pl/35.map
+					copy ram:test.rnc game/Map35_3pl/35.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/35.map
+game/Map37_3pl/37.rnc:			game/Map37_3pl/37.map
+					execute 3dgame:c/compress p d game/Map37_3pl/37.map
+					copy ram:test.rnc game/Map37_3pl/37.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/37.map
+
+game/Map38_4pl/38.rnc:			game/Map38_4pl/38.map
+					execute 3dgame:c/compress p d game/Map38_4pl/38.map
+					copy ram:test.rnc game/Map38_4pl/38.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/38.map
+game/Map39_4pl/39.rnc:			game/Map39_4pl/39.map
+					execute 3dgame:c/compress p d game/Map39_4pl/39.map
+					copy ram:test.rnc game/Map39_4pl/39.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/39.map
+game/Map40_4pl/40.rnc:			game/Map40_4pl/40.map
+					execute 3dgame:c/compress p d game/Map40_4pl/40.map
+					copy ram:test.rnc game/Map40_4pl/40.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/40.map
+game/Map41_4pl/41.rnc:			game/Map41_4pl/41.map
+					execute 3dgame:c/compress p d game/Map41_4pl/41.map
+					copy ram:test.rnc game/Map41_4pl/41.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/41.map
+game/Map42_4pl/42.rnc:			game/Map42_4pl/42.map
+					execute 3dgame:c/compress p d game/Map42_4pl/42.map
+					copy ram:test.rnc game/Map42_4pl/42.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk4/maps/42.map
+
+game/Map43_Training/43.rnc:		game/Map43_Training/43.map
+					execute 3dgame:c/compress p d game/Map43_Training/43.map
+					copy ram:test.rnc game/Map43_Training/43.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/43.map
+game/Map44_Training/44.rnc:		game/Map44_Training/44.map
+					execute 3dgame:c/compress p d game/Map44_Training/44.map
+					copy ram:test.rnc game/Map44_Training/44.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/44.map
+game/Map45_Training/45.rnc:		game/Map45_Training/45.map
+					execute 3dgame:c/compress p d game/Map45_Training/45.map
+					copy ram:test.rnc game/Map45_Training/45.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/45.map
+game/Map46_Training/46.rnc:		game/Map46_Training/46.map
+					execute 3dgame:c/compress p d game/Map46_Training/46.map
+					copy ram:test.rnc game/Map46_Training/46.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/46.map
+game/Map47_Training/47.rnc:		game/Map47_Training/47.map
+					execute 3dgame:c/compress p d game/Map47_Training/47.map
+					copy ram:test.rnc game/Map47_Training/47.rnc
+					copy ram:test.rnc 3dgame:diskdata/disk3/maps/47.map

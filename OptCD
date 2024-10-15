@@ -1,0 +1,4 @@
+cd work:programmingutils/cd32/iso9660tools/optcd
+optcd -m0 ram:CDStats ON
+ask "Press <RETURN> to end session"
+optcd

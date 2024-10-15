@@ -1,0 +1,8 @@
+.key opt1,opt2,input
+.bra {
+.ket }
+
+copy {input} ram:test.pp
+cd ram:
+3dgame:c/propack {opt1} {opt2} test.pp
+delete ram:test.pp

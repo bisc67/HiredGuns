@@ -1,0 +1,31 @@
+ASM =		genam
+
+################################################################################
+
+all:		bootblock \
+		bootblock2 \
+		walkerbootblock2 \
+		anticdtv \
+		actest
+#		copy bootblock2 3dgame:diskdata/disk1/Boot
+#		copy bootblock2 3dgame:diskdata/diskdemo/Boot
+#		copy bootblock2 3dgame:diskdata/diskrollingdemo/Boot
+
+bootblock:	bootblock.s
+		$(ASM) bootblock.s
+
+actest:		actest.s
+		$(ASM) actest.s
+		copy actest df0:
+
+bootblock2:	bootblock2.s \
+		/checksum.s
+		$(ASM) bootblock2.s
+		strip bootblock2 32 4
+
+walkerbootblock2:	walkerbootblock2.s
+			$(ASM) WalkerBootBlock2.s
+			strip walkerbootblock2 32 4
+
+anticdtv:	anticdtv.s
+		$(ASM) anticdtv.s

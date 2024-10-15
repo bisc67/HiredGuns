@@ -1,0 +1,105 @@
+*******************************************************************************
+*** French ********************************************************************
+*******************************************************************************
+
+"Zone morte"
+	This should a translation of "Dropzone", as in the target landing area
+	for the dropship. Is the translation correct?
+
+*******************************************************************************
+*** Spanish *******************************************************************
+*******************************************************************************
+
+"Palanca de mandos 1"
+	Too long, must be at least 3 letters shorter.
+
+"Panel de mandos 1"
+"Apoyo de mando 2"
+	Are these the correct translations for "Joypad 1" and "Joypad 2".
+
+*******************************************************************************
+*** German ********************************************************************
+*******************************************************************************
+
+"Nicht zutreffend"
+	Translation of N/A too long. Can only be 8 letters wide.
+
+*******************************************************************************
+*** Italian *******************************************************************
+*******************************************************************************
+
+"Meccanoide"
+	Two letters too wide.
+
+*******************************************************************************
+*** To be translated into French, German, Italian & Spanish *******************
+*******************************************************************************
+
+"PLEASE ENTER THE CLASS OF STAR"
+	Where class is the spectral class of a star.
+
+"PLEASE ENTER THE DISTANCE TO STAR"
+
+"PLEASE ENTER THE DECLINATION OF STAR"
+
+"PLEASE ENTER THE ASCENSION OF STAR"
+
+"PLEASE ENTER THE MASS OF STAR"
+
+"PLEASE ENTER THE NUMBER OF PLANETS AROUND STAR"
+
+"ANSWER"
+
+"ABORT FORMAT"
+	Abort formatting a floppy disk.
+
+"POSITION"
+	A numbered position of a file on a floppy disk.
+
+"EMPTY"
+	An area of a floppy disk is empty.
+
+"ANY KEY"
+	Any key on the keyboard.
+
+"THERE IS A PROBLEM WITH THE RAM DISK."
+
+"DELETE SAVES"
+	Delete saved games from a floppy disk.
+
+"EXIT HIRED GUNS"
+
+"origin unknown"
+
+"Hired Guns Installation"
+
+"This utility will install"
+"Hired Guns into the drawer that"
+"you are running this program from."
+"(Normal installation will use 3MB)"
+
+"Game"
+
+"Action Scenarios"
+
+"Campaign Scenario"
+
+"Customisable Graphics"
+
+"Now installing Hired Guns into the"
+"current drawer. Installation will"
+"take approximately 5 minutes."
+
+"Installation completed."
+
+"Hired Guns is now installed"
+"in this drawer."
+
+"To remove Hired Guns from your"
+"hard disk, delete the "HiredGuns"
+"drawer. No other areas of your"
+"hard disk have been altered."
+
+"Creating HiredGuns drawer"
+
+"Copying HiredGuns drawer"

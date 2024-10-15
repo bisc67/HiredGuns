@@ -1,0 +1,74 @@
+ASM =		genam
+
+################################################################################
+
+all:		staticcd32.dat \
+		3dgame:test/hiredgunscd32/static/static09.pic \
+		3dgame:test/hiredgunscd32/static/world.pic
+#		static.dat \
+
+################################################################################
+
+static.dat:	static.cpr \
+		staticnt.cpr \
+		static.font \
+		panel.pic
+		join static.cpr staticnt.cpr static.font panel.pic as static.dat
+		compress p d static.dat
+		copy ram:test.rnc 3dgame:diskdata/disk2/static/Static.dat
+		copy ram:test.rnc 3dgame:diskdata/diskdemo/static/Static.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/static/Static.dat
+		copy ram:test.rnc 3dgame:test/hiredgunsdemo/static/Static.dat
+
+static.cpr:	static.s
+		$(ASM) static.s to Static.cpr
+		strip static.cpr 32 4
+
+staticnt.cpr:	staticnt.s
+		$(ASM) staticnt.s to StaticNT.cpr
+		strip staticnt.cpr 32 4
+
+static.font:	staticfont.ilbm \
+		staticfont.s
+		ilbm2raw -f0,0,336,48Zcgb2M16N8rm staticfont.ilbm ram:staticfont.bin
+		$(ASM) from staticfont.s to Static.font
+		strip static.font 32 4
+
+panel.pic :	panel.ilbm
+		ilbm2raw -cf0,0,640,51 panel.ilbm Panel.pic
+
+################################################################################
+
+staticcd32.dat:	staticcd32.cpr \
+		staticcd32_notext.cpr \
+		staticcd32.font \
+		panelcd32.pic
+		join staticcd32.cpr staticcd32_notext.cpr staticcd32.font panelcd32.pic as staticcd32.dat
+		copy staticcd32.dat 3dgame:test/hiredgunscd32/static/Static.dat
+
+staticcd32.cpr:	staticcd32.s
+		$(ASM) staticcd32.s to StaticCD32.cpr
+		strip staticcd32.cpr 32 4
+
+staticcd32_notext.cpr:	staticcd32_notext.s
+			$(ASM) staticcd32_notext.s to StaticCD32_notext.cpr
+			strip staticcd32_notext.cpr 32 4
+
+panelcd32.pic :	panelcd32.ilbm
+		ilbm2raw -cf0,0,640,102 panelcd32.ilbm PanelCD32.pic
+
+staticcd32.font:	staticfont.ilbm \
+			staticfontcd32.s
+			ilbm2raw -f0,93,336,96Zcgb3M16N16rm staticfont.ilbm ram:staticfontcd32.bin
+			$(ASM) from staticfontcd32.s to StaticCD32.font
+			strip StaticCD32.font 32 4
+
+################################################################################
+
+3dgame:test/hiredgunscd32/static/static09.pic:	ham8_2_pic.rexx \
+						world.ham8
+		rx ham8_2_pic.rexx 3dgame:data/static.dat/world.ham8 3dgame:test/hiredgunscd32/static/static09.pic
+
+3dgame:test/hiredgunscd32/static/world.pic:	ham8_2_pic.rexx \
+						world.ham8
+		rx ham8_2_pic.rexx 3dgame:data/static.dat/world.ham8 3dgame:test/hiredgunscd32/static/world.pic

@@ -1,0 +1,14 @@
+System3.0:C/Assign T: Ram:
+System3.0:C/Assign Libs: System3.0:Libs
+System3.0:C/Assign Devs: System3.0:Devs
+
+cd work:programmingutils/cd32/iso9660tools/simcd
+run >nil: simcd -b
+
+Cd HiredGunsCD:
+
+System3.0:C/Assign Libs: Libs
+System3.0:C/Assign Devs: ""
+System3.0:C/Execute S/Startup-Sequence
+
+Path System3.0:C ADD

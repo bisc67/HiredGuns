@@ -1,0 +1,20 @@
+Bugs fixed
+----------
+
+Password protection for "declination of star 200" did not accept printed figure.
+
+Text in time out message was garbled.
+
+Item at end of teleport maze in "Log entry 8: Unlisted" level during campaign game was corrupted.
+
+DTS range to exit in "Log entry 4: Temple" during campaign game was wrong.
+
+"Desalination Map" impossible without spare "Bridge" psi-amp
+
+DTS range to exit in "Log entry 20: Urban Development" during campaign game was wrong.
+
+Spelling mistake in "Log entry 8: Unlisted" level intro during campaign game
+
+Spelling mistake on credits screen
+
+Dead end on "Log entry 9: Tomb"

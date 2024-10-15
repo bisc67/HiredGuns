@@ -1,0 +1,10 @@
+ASM =		genam
+
+################################################################################
+
+anticdtv:	anticdtv.s
+		$(ASM) anticdtv.s
+
+		ask "Insert a disk into df0: then press return when ready..."
+		bootwriter anticdtv
+# Hope you dont mind me using your rather useful bootwriter utility Jolyon.

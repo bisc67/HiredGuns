@@ -1,0 +1,186 @@
+echo "*N[1m[4mMAKING HIRED GUNS DISKS                                                      [0m*N"
+
+ask "Do quick format ? ([32mY[0m/[32mN[0m)"
+
+if warn
+	set formattype "quick"
+else
+	set formattype ""
+endif
+
+ask "Make game disk 1 ? ([32mY[0m/[32mN[0m)"
+if warn
+	3dgame:scripts/makedisk 1 "Hired Guns Disk 1" df0: $formattype
+	3dgame:takeover/bootcode/anticdtv/bootwriter 3dgame:takeover/bootcode/anticdtv/anticdtv
+endif
+
+ask "Make game disk 2 ? ([32mY[0m/[32mN[0m)"
+if warn
+	3dgame:scripts/makedisk 2 "Hired Guns Disk 2" df0: $formattype
+endif
+
+ask "Make game disk 3 ? ([32mY[0m/[32mN[0m)"
+if warn
+	3dgame:scripts/makedisk 3 "Hired Guns Disk 3" df0: $formattype
+endif
+ask "Make game disk 4 ? ([32mY[0m/[32mN[0m)"
+
+if warn
+	3dgame:scripts/makedisk 4 "Hired Guns Disk 4" df0: $formattype
+endif
+
+ask "Make game disk 5 ? ([32mY[0m/[32mN[0m)"
+if warn
+	3dgame:scripts/makedisk 5 "Hired Guns Disk 5" df0: $formattype
+endif
+
+ask "Make editor disk 1 ? ([32mY[0m/[32mN[0m)"
+if warn
+	3dgame:scripts/makedisk Edit1 "HGedit Disk 1" df0: $formattype install
+endif
+
+ask "Make editor disk 2 ? ([32mY[0m/[32mN[0m)"
+if warn
+	3dgame:scripts/makedisk Edit2 "HGedit Disk 2" df0: $formattype
+endif
+
+ask "Make demo disk ? ([32mY[0m/[32mN[0m)"
+if warn
+	3dgame:scripts/makedisk Demo "Hired Guns Demo" df0: $formattype install
+endif
+
+ask "Make rolling demo disk ? ([32mY[0m/[32mN[0m)"
+if warn
+	3dgame:scripts/makedisk RollingDemo "Hired Guns Demo" df0: $formattype install
+endif
+
+ask "Were these preview disks for a magazine ? ([32mY[0m/[32mN[0m)"
+if warn
+	ask "General ? ([32mY[0m/[32mN[0m)"
+	if warn
+		cd 3dgame:
+		delete "hired guns disk 1:Front/Death.dat"
+		copy data/front.dat/preview.dat "hired guns disk 1:Front/SE.dat"
+		copy hdscripts/preview "hired guns disk 1:Hard Disk Install.dat"
+		copy data/world.dat/seworld.dat "hired guns disk 2:world/World.dat"
+		delete "hired guns disk 3:maps/06.map"
+		delete "hired guns disk 3:maps/10.map"
+		delete "hired guns disk 3:maps/14.map"
+		delete "hired guns disk 3:maps/20.map"
+		delete "hired guns disk 3:maps/21.map"
+		delete "hired guns disk 3:maps/26.map"
+		delete "hired guns disk 3:maps/34.map"
+		delete "hired guns disk 3:maps/37.map"
+		delete "hired guns disk 3:maps/40.map"
+		delete "hired guns disk 3:maps/41.map"
+		delete "hired guns disk 4:maps/04.map"
+		delete "hired guns disk 4:maps/05.map"
+		delete "hired guns disk 4:maps/08.map"
+		delete "hired guns disk 4:maps/09.map"
+		delete "hired guns disk 4:maps/11.map"
+		delete "hired guns disk 4:maps/12.map"
+		delete "hired guns disk 4:maps/15.map"
+		delete "hired guns disk 4:maps/17.map"
+		delete "hired guns disk 4:maps/19.map"
+		delete "hired guns disk 4:maps/25.map"
+		delete "hired guns disk 4:maps/27.map"
+		delete "hired guns disk 4:maps/30.map"
+		delete "hired guns disk 4:maps/31.map"
+		delete "hired guns disk 4:maps/35.map"
+		delete "hired guns disk 4:maps/39.map"
+		delete "hired guns disk 4:maps/42.map"
+	endif
+	ask "Amiga Format ? ([32mY[0m/[32mN[0m)"
+	if warn
+		cd 3dgame:
+		delete "hired guns disk 1:Front/Death.dat"
+		copy data/front.dat/aformat.dat "hired guns disk 1:Front/SE.dat"
+		copy hdscripts/aformatgame "hired guns disk 1:Hard Disk Install.dat"
+		copy sources/data/aformatcharacters "hired guns disk 1:chselect/Characters.dat"
+		copy data/chselect.dat/aformatchselect.dat "hired guns disk 1:chselect/ChSelect.dat"
+		delete "hired guns disk 1:charactersgfx/clavius.gfx"
+		delete "hired guns disk 1:charactersgfx/desverger.gfx"
+		delete "hired guns disk 1:charactersgfx/rorian.gfx"
+		delete "hired guns disk 1:charactersgfx/bonden.gfx"
+		copy graphics/funcharacters/andy.gfx "hired guns disk 1:charactersgfx/Andy.gfx"
+		copy graphics/funcharacters/sue.gfx "hired guns disk 1:charactersgfx/Sue.gfx"
+		copy graphics/funcharacters/julie.gfx "hired guns disk 1:charactersgfx/Julie.gfx"
+		copy graphics/funcharacters/marcus.gfx "hired guns disk 1:charactersgfx/Marcus.gfx"
+		copy data/world.dat/seworld.dat "hired guns disk 2:world/World.dat"
+		delete "hired guns disk 3:maps/06.map"
+		delete "hired guns disk 3:maps/10.map"
+		delete "hired guns disk 3:maps/14.map"
+		delete "hired guns disk 3:maps/20.map"
+		delete "hired guns disk 3:maps/21.map"
+		delete "hired guns disk 3:maps/26.map"
+		delete "hired guns disk 3:maps/34.map"
+		delete "hired guns disk 3:maps/37.map"
+		delete "hired guns disk 3:maps/40.map"
+		delete "hired guns disk 3:maps/41.map"
+		delete "hired guns disk 4:maps/04.map"
+		delete "hired guns disk 4:maps/05.map"
+		delete "hired guns disk 4:maps/08.map"
+		delete "hired guns disk 4:maps/09.map"
+		delete "hired guns disk 4:maps/11.map"
+		delete "hired guns disk 4:maps/12.map"
+		delete "hired guns disk 4:maps/15.map"
+		delete "hired guns disk 4:maps/17.map"
+		delete "hired guns disk 4:maps/19.map"
+		delete "hired guns disk 4:maps/25.map"
+		delete "hired guns disk 4:maps/27.map"
+		delete "hired guns disk 4:maps/30.map"
+		delete "hired guns disk 4:maps/31.map"
+		delete "hired guns disk 4:maps/35.map"
+		delete "hired guns disk 4:maps/39.map"
+		delete "hired guns disk 4:maps/42.map"
+	endif
+	ask "Amiga Force ? ([32mY[0m/[32mN[0m)"
+	if warn
+		cd 3dgame:
+		delete "hired guns disk 1:Front/Death.dat"
+		copy data/front.dat/aforce.dat "hired guns disk 1:Front/SE.dat"
+		copy hdscripts/aforcegame "hired guns disk 1:Hard Disk Install.dat"
+		copy sources/data/aforcecharacters "hired guns disk 1:chselect/Characters.dat"
+		copy data/chselect.dat/aforcechselect.dat "hired guns disk 1:chselect/ChSelect.dat"
+		delete "hired guns disk 1:charactersgfx/clavius.gfx"
+		delete "hired guns disk 1:charactersgfx/desverger.gfx"
+		delete "hired guns disk 1:charactersgfx/rorian.gfx"
+		delete "hired guns disk 1:charactersgfx/bonden.gfx"
+		copy graphics/funcharacters/ian.gfx "hired guns disk 1:charactersgfx/Ian.gfx"
+		copy graphics/funcharacters/miles.gfx "hired guns disk 1:charactersgfx/Miles.gfx"
+		copy graphics/funcharacters/milo.gfx "hired guns disk 1:charactersgfx/Milo.gfx"
+		copy graphics/funcharacters/phil.gfx "hired guns disk 1:charactersgfx/Phil.gfx"
+		copy data/world.dat/seworld.dat "hired guns disk 2:world/World.dat"
+		delete "hired guns disk 3:maps/06.map"
+		delete "hired guns disk 3:maps/10.map"
+		delete "hired guns disk 3:maps/14.map"
+		delete "hired guns disk 3:maps/20.map"
+		delete "hired guns disk 3:maps/21.map"
+		delete "hired guns disk 3:maps/26.map"
+		delete "hired guns disk 3:maps/34.map"
+		delete "hired guns disk 3:maps/37.map"
+		delete "hired guns disk 3:maps/40.map"
+		delete "hired guns disk 3:maps/41.map"
+		delete "hired guns disk 4:maps/04.map"
+		delete "hired guns disk 4:maps/05.map"
+		delete "hired guns disk 4:maps/08.map"
+		delete "hired guns disk 4:maps/09.map"
+		delete "hired guns disk 4:maps/11.map"
+		delete "hired guns disk 4:maps/12.map"
+		delete "hired guns disk 4:maps/15.map"
+		delete "hired guns disk 4:maps/17.map"
+		delete "hired guns disk 4:maps/19.map"
+		delete "hired guns disk 4:maps/25.map"
+		delete "hired guns disk 4:maps/27.map"
+		delete "hired guns disk 4:maps/30.map"
+		delete "hired guns disk 4:maps/31.map"
+		delete "hired guns disk 4:maps/35.map"
+		delete "hired guns disk 4:maps/39.map"
+		delete "hired guns disk 4:maps/42.map"
+	endif
+endif
+
+ask "Run ReOrg ? ([32mY[0m/[32mN[0m)"
+if warn
+	Run >NIL: <NIL: work:systemutils/reorg/reorg SCREENMODE 0x29000 SETTINGS 3dgame:scripts/reorg.prefs
+endif

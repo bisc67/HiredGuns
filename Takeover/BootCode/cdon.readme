@@ -1,0 +1,38 @@
+                      CDon and CDoff (26/August/1993)
+                      -------------------------------
+
+Two programs for CDTV and A570 owners (especially those with Hard Drives)
+
+Written by Jolyon Ralph, Almathera Systems (Publishers of the CDPD and
+Demo CD series of Amiga CD-ROM software amongst others)
+
+
+What do they do?
+----------------
+
+CDoff disables the CDTV.DEVICE on the CDTV. Why? More software works like this.
+CDon re-enables it afterwards.
+
+Useful for getting badly-written software (especially games) to work on
+the CDTV hard drive.
+
+Click on the CDoff Icon (anyone want to draw better ones? email please....)
+Run your badly-written application (*NOT* from CD :-)
+Click on the CDon Icon to get your CD back running.
+
+These programs are freely distributable for non-commercial purposes.
+If you would like to use this commercially as part of a product, please
+email for permission. These files may not be distributed without this
+text file (in an unaltered state)
+
+Bugs, chat and suggestions to:
+
+EMAIL: jralph@cix.compulink.co.uk
+MAIL: Jolyon Ralph,
+      Almathera Systems Ltd,
+      Challenge House,
+      618 Mitcham Rd,
+      Croydon, Surrey,
+      CR9 3AU,
+      ENGLAND.
+

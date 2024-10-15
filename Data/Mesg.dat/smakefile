@@ -1,0 +1,56 @@
+ASM =		genam
+
+all:		mesg.dat \
+		smallmesg.dat
+
+################################################################################
+
+mesg.dat:	fronts.font \
+		spinin.anim \
+		spinout.anim \
+		mesg.cpr \
+		anim.cpr
+		join fronts.font spinin.anim spinout.anim mesg.cpr anim.cpr as mesg.dat
+		compress p d mesg.dat
+		copy ram:test.rnc 3dgame:diskdata/disk1/front/Mesg.dat
+		copy ram:test.rnc 3dgame:diskdata/disk3/front/Mesg.dat
+		copy ram:test.rnc 3dgame:diskdata/disk4/front/Mesg.dat
+		copy ram:test.rnc 3dgame:diskdata/diskdemo/front/Mesg.dat
+		copy ram:test.rnc 3dgame:diskdata/diskrollingdemo/front/Mesg.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Mesg.dat
+		copy ram:test.rnc 3dgame:test/hiredgunsdemo/front/Mesg.dat
+
+smallmesg.dat:	fronts_squashed.font \
+		spinin.anim \
+		spinout.anim \
+		mesg.cpr \
+		anim.cpr
+		join fronts_squashed.font spinin.anim spinout.anim mesg.cpr anim.cpr as smallmesg.dat
+		compress p d smallmesg.dat
+		copy ram:test.rnc 3dgame:diskdata/disk1/front/SmallMesg.dat
+		copy ram:test.rnc 3dgame:diskdata/disk3/front/SmallMesg.dat
+		copy ram:test.rnc 3dgame:diskdata/disk4/front/SmallMesg.dat
+		copy ram:test.rnc 3dgame:diskdata/diskdemo/front/SmallMesg.dat
+		copy ram:test.rnc 3dgame:diskdata/diskrollingdemo/front/SmallMesg.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/front/SmallMesg.dat
+		copy ram:test.rnc 3dgame:test/hiredgunsdemo/front/SmallMesg.dat
+
+fronts.font:	fronts.ilbm \
+		fronts.s
+		ilbm2raw -cmgb3M48N44r fronts.ilbm ram:fronts.bin
+		$(ASM) from fronts.s to FrontS.font
+		strip fronts.font 32 4
+
+fronts_squashed.font:	fronts_squashed.ilbm \
+			fronts_squashed.s
+			ilbm2raw -cmgb3M32N44r fronts_squashed.ilbm ram:fronts.bin
+			$(ASM) from fronts_squashed.s to FrontS_squashed.font
+			strip fronts_squashed.font 32 4
+
+mesg.cpr:	mesg.s
+		$(ASM) mesg.s to Mesg.cpr
+		strip mesg.cpr 32 4
+
+anim.cpr:	anim.s
+		$(ASM) anim.s to Anim.cpr
+		strip anim.cpr 32 4

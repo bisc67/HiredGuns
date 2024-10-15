@@ -1,0 +1,8 @@
+ask "Do you need a full format of the disk in DF0: ?"
+if warn
+	format drive df0: name "Download Boot" noicons
+else
+	format drive df0: name "Download Boot" noicons quick
+endif
+install df0:
+copy from 3dgame:download to df0: all buf=0 com

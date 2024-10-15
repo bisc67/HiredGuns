@@ -1,0 +1,105 @@
+.key disk/a,name/a,device/a,opt1,opt2,opt3
+.bra {
+.ket }
+
+echo "*N[1mMaking Hired Guns Disk {disk}[0m*N"
+
+IF "{opt1}" EQ "quick"
+	SKIP formatquick
+ELSE
+	IF "{opt2}" EQ "quick"
+		SKIP formatquick
+	ELSE
+		IF "{opt3}" EQ "quick"
+			SKIP formatquick
+		ELSE
+			SKIP format
+		ENDIF
+	ENDIF
+ENDIF
+LAB formatreturn
+
+IF "{opt1}" EQ "install"
+	SKIP install
+ELSE
+	IF "{opt2}" EQ "install"
+		SKIP install
+	ELSE
+		IF "{opt3}" EQ "install"
+			SKIP install
+		ENDIF
+	ENDIF
+ENDIF
+LAB installreturn
+
+IF "{opt1}" EQ "optimise"
+	SKIP optimise
+ELSE
+	IF "{opt2}" EQ "optimise"
+		SKIP optimise
+	ELSE
+		IF "{opt3}" EQ "optimise"
+			SKIP optimise
+		ELSE
+			SKIP copy
+		ENDIF
+	ENDIF
+ENDIF
+
+;************************************************************************
+
+LAB formatquick
+	echo " [3mFormatting (quick)....[0m"
+	format >nil: <3dgame:scripts/formatinput drive {device} name "{name}" noicons quick
+
+	SKIP formatreturn BACK
+
+LAB format
+	echo " [3mFormatting....[0m"
+	format >nil: <3dgame:scripts/formatinput drive {device} name "{name}" noicons
+
+	SKIP formatreturn BACK
+
+;************************************************************************
+
+LAB install
+	echo " [3mInstalling....[0m"
+	install {device}
+
+	SKIP installreturn BACK
+
+;************************************************************************
+
+LAB optimise
+
+	echo " [3mScanning directories....[0m"
+	cd 3dgame:diskdata/disk{disk}
+	list >T:q{$$} #? lformat "makedir *"{device}%s%s*"" all dirs
+
+	echo " [3mCreating directories....[0m"
+	execute >nil: T:q{$$}
+
+	echo " [3mWaiting for end of disk activity....[0m"
+	wait 5
+
+	echo " [3mScanning files....[0m"
+	list >T:q{$$} #? lformat "writefile >nil: input *"%s%s*" output *"{device}%s%s*"" all
+
+	echo " [3mSorting files....[0m"
+	sort T:q{$$} T:q_sorted{$$}
+
+	echo " [3mCopying files....[0m"
+	execute T:q_sorted{$$}
+
+	echo " [3mFinished Hired Guns Disk {disk}.[0m"
+
+	SKIP end
+
+LAB copy
+	echo " [3mCopying files....[0m"
+	cd 3dgame:diskdata/disk{disk}
+	copy #? {device} all
+
+	echo " [3mFinished Hired Guns Disk {disk}.[0m*N"
+
+LAB end

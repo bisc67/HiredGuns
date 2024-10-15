@@ -1,0 +1,222 @@
+all:		3dgame:test/hiredgunscd32/game/Misc.gfx \
+		3dgame:test/hiredgunscd32/game/Items.gfx
+
+3dgame:test/hiredgunscd32/game/Items.gfx:	itemscd32.s \
+						itemscd32.script \
+						/ilbm/itemscd32.ilbm
+						ilbm2raw -b6cm -@itemscd32.script /ilbm/itemscd32.ilbm ram:output.bin
+						genam itemscd32.s
+						strip 3dgame:test/hiredgunscd32/game/Items.gfx 32 4
+
+3dgame:test/hiredgunscd32/game/Misc.gfx:	miscgfxcd32.s \
+						/raw/digitscd32.bin \
+						/raw/light1.bin \
+						/raw/light2.bin \
+						/raw/light3.bin \
+						/raw/expl1.bin \
+						/raw/expl2.bin \
+						/raw/expl3.bin \
+						/raw/expl4.bin \
+						/raw/planet.bin
+						genam miscgfxcd32.s
+						strip 3dgame:test/hiredgunscd32/game/Misc.gfx 32 4
+
+/raw/planet.bin:	/ilbm/planet.ilbm \
+			planet.s
+			ilbm2raw -cb1f0,0,96,42 /ilbm/planet.ilbm ram:output.bin
+			genam planet.s
+			strip /raw/planet.bin 32 4
+
+/raw/expl1.bin:		/ilbm/expl1_64.ilbm \
+			expl1_64.s
+			ilbm2raw -b124mcf0,0,80,80 /ilbm/expl1_64.ilbm ram:temp1
+			ilbm2raw -b124mcf0,80,48,48 /ilbm/expl1_64.ilbm ram:temp2
+			ilbm2raw -b124mcf0,128,32,32 /ilbm/expl1_64.ilbm ram:temp3
+			ilbm2raw -b124mcf0,160,32,22 /ilbm/expl1_64.ilbm ram:temp4
+			ilbm2raw -b124mcf80,0,144,84 /ilbm/expl1_64.ilbm ram:temp5
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 as ram:output.bin
+			genam expl1_64.s
+			strip /raw/expl1.bin 32 4
+
+/raw/expl2.bin:		/ilbm/expl2_64.ilbm \
+			expl2_64.s
+			ilbm2raw -b124mcf0,0,80,80 /ilbm/expl2_64.ilbm ram:temp1
+			ilbm2raw -b124mcf0,80,48,48 /ilbm/expl2_64.ilbm ram:temp2
+			ilbm2raw -b124mcf0,128,32,32 /ilbm/expl2_64.ilbm ram:temp3
+			ilbm2raw -b124mcf0,160,32,22 /ilbm/expl2_64.ilbm ram:temp4
+			ilbm2raw -b124mcf80,0,144,84 /ilbm/expl2_64.ilbm ram:temp5
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 as ram:output.bin
+			genam expl2_64.s
+			strip /raw/expl2.bin 32 4
+
+/raw/expl3.bin:		/ilbm/expl3_64.ilbm \
+			expl3_64.s
+			ilbm2raw -b124mcf0,0,80,80 /ilbm/expl3_64.ilbm ram:temp1
+			ilbm2raw -b124mcf0,80,48,48 /ilbm/expl3_64.ilbm ram:temp2
+			ilbm2raw -b124mcf0,128,32,32 /ilbm/expl3_64.ilbm ram:temp3
+			ilbm2raw -b124mcf0,160,32,22 /ilbm/expl3_64.ilbm ram:temp4
+			ilbm2raw -b124mcf80,0,144,84 /ilbm/expl3_64.ilbm ram:temp5
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 as ram:output.bin
+			genam expl3_64.s
+			strip /raw/expl3.bin 32 4
+
+/raw/expl4.bin:		/ilbm/expl4_64.ilbm \
+			expl4_64.s
+			ilbm2raw -b124mcf0,0,80,80 /ilbm/expl4_64.ilbm ram:temp1
+			ilbm2raw -b124mcf0,80,48,48 /ilbm/expl4_64.ilbm ram:temp2
+			ilbm2raw -b124mcf0,128,32,32 /ilbm/expl4_64.ilbm ram:temp3
+			ilbm2raw -b124mcf0,160,32,22 /ilbm/expl4_64.ilbm ram:temp4
+			ilbm2raw -b124mcf80,0,144,84 /ilbm/expl4_64.ilbm ram:temp5
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 as ram:output.bin
+			genam expl4_64.s
+			strip /raw/expl4.bin 32 4
+
+/raw/digitscd32.bin:	digitscd32.s \
+			/ilbm/digits.ilbm
+			rx digits.rexx
+			genam digitscd32.s
+			strip /raw/digitscd32.bin 32 4
+
+/raw/light1.bin:        light1.s \
+			/ilbm/light1.ilbm
+			copy /ilbm/light1.ilbm ram:ilbm
+			copy work:c/ilbm2raw ram:
+			ram:ilbm2raw -cf80,0,32,25 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf112,0,32,25 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf144,0,32,25 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf176,0,32,25 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf208,0,32,25 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf64,44,48,31 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf112,44,48,31 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf160,44,32,31 ram:ilbm ram:temp8
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:output.bin
+			ram:ilbm2raw -cf192,44,48,31 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf240,44,48,31 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf48,123,32,26 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf80,123,64,26 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf144,123,48,26 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf192,123,64,26 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf256,123,32,26 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf80,208,48,18 ram:ilbm ram:temp8
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			ram:ilbm2raw -cf128,208,80,18 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf208,208,48,18 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf80,268,32,2 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf128,268,96,2 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf224,268,32,2 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf48,26,32,11 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf80,26,32,11 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf112,26,32,11 ram:ilbm ram:temp8
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			ram:ilbm2raw -cf144,26,32,11 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf176,26,32,11 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf208,26,32,11 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf240,26,32,11 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf32,78,16,14 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf64,76,48,16 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf112,76,48,16 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf160,76,32,16 ram:ilbm ram:temp8
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			ram:ilbm2raw -cf192,76,48,16 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf240,76,48,16 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf288,78,16,14 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf48,151,32,23 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf80,150,64,24 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf144,150,48,24 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf192,150,64,24 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf256,151,32,23 ram:ilbm ram:temp8
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			ram:ilbm2raw -cf80,227,48,40 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf128,227,80,40 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf208,227,48,40 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf80,308,32,42 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf80,360,144,42 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf208,308,32,42 ram:ilbm ram:temp6
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			genam light1.s
+			strip /raw/light1.bin 32 4
+
+/raw/light2.bin:        light2.s \
+			/ilbm/light2.ilbm
+			copy /ilbm/light2.ilbm ram:ilbm
+			copy work:c/ilbm2raw ram:
+			ram:ilbm2raw -cf80,0,32,25 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf112,0,32,25 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf144,0,32,25 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf176,0,32,25 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf208,0,32,25 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf64,44,48,31 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf112,44,48,31 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf160,44,32,31 ram:ilbm ram:temp8
+			join ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:output.bin
+			ram:ilbm2raw -cf192,44,48,31 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf240,44,48,31 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf48,123,32,26 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf80,123,64,26 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf144,123,48,26 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf192,123,64,26 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf256,123,32,26 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf80,208,48,18 ram:ilbm ram:temp8
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			ram:ilbm2raw -cf128,208,80,18 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf208,208,48,18 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf80,268,32,2 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf128,268,96,2 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf224,268,32,2 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf48,26,32,11 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf80,26,32,11 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf112,26,32,11 ram:ilbm ram:temp8
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			ram:ilbm2raw -cf144,26,32,11 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf176,26,32,11 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf208,26,32,11 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf240,26,32,11 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf32,78,16,14 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf64,76,48,16 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf112,76,48,16 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf160,76,32,16 ram:ilbm ram:temp8
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			ram:ilbm2raw -cf192,76,48,16 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf240,76,48,16 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf288,78,16,14 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf48,151,32,23 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf80,150,64,24 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf144,150,48,24 ram:ilbm ram:temp6
+			ram:ilbm2raw -cf192,150,64,24 ram:ilbm ram:temp7
+			ram:ilbm2raw -cf256,151,32,23 ram:ilbm ram:temp8
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 ram:temp7 ram:temp8 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			ram:ilbm2raw -cf80,227,48,40 ram:ilbm ram:temp1
+			ram:ilbm2raw -cf128,227,80,40 ram:ilbm ram:temp2
+			ram:ilbm2raw -cf208,227,48,40 ram:ilbm ram:temp3
+			ram:ilbm2raw -cf80,308,32,42 ram:ilbm ram:temp4
+			ram:ilbm2raw -cf80,360,144,42 ram:ilbm ram:temp5
+			ram:ilbm2raw -cf208,308,32,42 ram:ilbm ram:temp6
+			join ram:output.bin ram:temp1 ram:temp2 ram:temp3 ram:temp4 ram:temp5 ram:temp6 as ram:temp_output
+			delete ram:output.bin
+			rename ram:temp_output as ram:output.bin
+			genam light2.s
+			strip /raw/light2.bin 32 4
+
+/raw/light3.bin:        light3.s \
+			/ilbm/light3.ilbm
+			ilbm2raw -c -@light3.script /ilbm/light3.ilbm ram:output.bin
+			genam light3.s
+			strip /raw/light3.bin 32 4

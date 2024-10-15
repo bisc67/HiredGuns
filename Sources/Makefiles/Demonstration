@@ -1,0 +1,42 @@
+ASM =           genam
+
+################################################################################
+
+SOURCES =	main.s \
+		drawviews.s \
+		controls&movement.s \
+		front.s \
+		cheat.s \
+		diskio.s \
+		checkhost.s \
+		static.s \
+		deathsequence.s \
+		endsequence.s \
+		coldstartup.s \
+		source:takeover/library.s \
+		worldmap.s \
+		dosio.s \
+		intro.s \
+		itemusage.s \
+		medmodplayer.s \
+		tables.s \
+		chselect.s \
+		monstermovement.s \
+		miscroutines.s
+
+INCLUDES =	macros.i \
+		equates.i \
+		hardware.i \
+		source:takeover/takeover.i
+
+################################################################################
+
+main :		$(SOURCES) \
+		$(INCLUDES)
+		$(ASM) main.s
+
+#		compress p d main
+#		copy ram:test.rnc "source:hiredguns/diskdata/diskdemo/Hired Guns"
+#		copy ram:test.rnc "work:games/hiredgunsdemo/Hired Guns"
+
+		copy main "work:games/hiredgunsdemo/Hired Guns"

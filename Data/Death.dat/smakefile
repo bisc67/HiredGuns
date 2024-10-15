@@ -1,0 +1,18 @@
+ASM =		genam
+
+################################################################################
+
+death.dat:	death.cpr \
+		death.mod \
+		death.pic
+		join death.cpr death.mod death.pic as death.dat
+		compress p d death.dat
+		copy ram:test.rnc 3dgame:diskdata/disk1/front/Death.dat
+		copy ram:test.rnc 3dgame:test/hiredguns/front/Death.dat
+
+death.cpr:	death.s
+		$(ASM) death.s to Death.cpr
+		strip death.cpr 32 4
+
+death.pic:	death.ilbm
+		ilbm2raw -f0,0,320,212 death.ilbm Death.pic

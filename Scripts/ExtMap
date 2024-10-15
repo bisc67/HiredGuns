@@ -1,0 +1,6 @@
+.key opt1
+.bra {
+.ket }
+
+split {opt1} 7700 ram:file1 ram:file2
+join ram:file1 3dgame:scripts/Blank ram:file2 as {opt1}

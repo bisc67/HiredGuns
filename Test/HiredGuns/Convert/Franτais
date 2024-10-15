@@ -1,0 +1,75 @@
+.key Figure
+
+Echo "*N                         - [1mCONVERSION DU PERSONNAGE[22m -*N"
+
+If "<Figure>" Eq ""
+	Echo "     Mettez en surbrillance cette icône (cliquez une fois dessus).*N     Maintenez la touche Maj enfoncée et double cliquez sur le personnage*N     que vous voulez convertir.*N"
+	Ask "               [32mAppuyez sur RETURN pour continuer.[31m"
+        EndCli
+EndIf
+
+List >Ram:CopyFile1 "<Figure>" lformat "Copy Ram:MakeFigure/Figure.crn /CharactersGfx/%N.gfx"
+List >Ram:CopyFile2 "<Figure>" lformat "Copy Ram:MakeFigure/Figure.crn *"Hired Guns Disk 1:CharactersGfx/%N.gfx*""
+List >Ram:CopyFile3 "<Figure>" lformat "Copy Ram:MakeFigure/Figure.crn //Disk1/CharactersGfx/%N.gfx"
+
+If Not Exists Ram:MakeFigure
+	Echo "               [3mCopie des commandes vers RAM:....[23m*N"
+	Copy /MakeFigure Ram:MakeFigure quiet
+	Copy /C/Crunch Ram:MakeFigure/Crunch quiet
+EndIf
+Path Ram:MakeFigure Add
+
+Echo "     Cette séquence type va convertir le graphique d'un personnage pour"
+Echo "     que Hired Guns puisse l'utiliser."
+Echo "     Utilisateurs de disquettes : la s‚quence va écrire sur la disquette"
+Echo "     nø 1. Assurez-vous de bien utiliser une copie de sauvegarde."
+Echo "     Reportez-vous au manuel pour savoir comment faire une copie de"
+Echo "     sauvegarde des disquettes Hired Guns.*N"
+
+Ask "               [32mVoulez-vous lancer la conversion ? ([31mY[32m/[31mN[32m)[31m"
+
+If Warn
+	Echo "*N               [3mCopie des nouveaux graphiques sur RAM:....[23m"
+	Copy "<Figure>" Ram:MakeFigure/Figure.ilbm quiet
+
+	Echo "               [3mExtraction des graphiques profil gauche...[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Left Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Left.bin
+	Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Left.bin as Ram:MakeFigure/Left.bob
+
+	Echo "               [3mExtraction des graphiques profil droit...[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Right Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Right.bin
+	Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Right.bin as Ram:MakeFigure/Right.bob
+
+	Echo "               [3mExtraction des graphiques avant...[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Front Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Front.bin
+	Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Front.bin as Ram:MakeFigure/Front.bob
+
+	Echo "               [3mExtraction des graphiques dos...[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Back Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Back.bin
+	Join Ram:MakeFigure/Figure.dump Ram:MakeFigure/Back.bin as Ram:MakeFigure/Back.bob
+
+	Echo "               [3mExtraction des graphiques face...[23m"
+	MakeFigure >nil: -@Ram:MakeFigure/Filters -#Face Ram:MakeFigure/Figure.ilbm Ram:MakeFigure/Face.bin
+	Join Ram:MakeFigure/Face.dump Ram:MakeFigure/Face.bin as Ram:MakeFigure/Face.bob
+
+	Echo "               [3mCompression du fichier (veuillez patienter)...[23m"
+
+	Join Ram:MakeFigure/Front.bob Ram:MakeFigure/Left.bob Ram:MakeFigure/Right.bob Ram:MakeFigure/Back.bob Ram:MakeFigure/Face.bob as Ram:MakeFigure/Figure.bob
+	Crunch >nil: Ram:MakeFigure/Figure.bob ram:Makefigure/Figure.crn
+
+	Echo "               [3mEcriture du fichier...[23m"
+
+	If Exists //Disk1/CharactersGfx
+		Execute Ram:CopyFile3
+	Else
+		If Exists /CharactersGfx
+			Execute Ram:CopyFile1
+		Else
+			Execute Ram:CopyFile2
+		EndIf
+	EndIf
+
+	Echo "*N               Conversion terminée !"
+Else
+	Echo "*N               Conversion abandonnée !"
+EndIf

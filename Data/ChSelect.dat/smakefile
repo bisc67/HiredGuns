@@ -1,0 +1,84 @@
+ASM =			genam
+
+################################################################################
+################################################################################
+################################################################################
+
+all:			chselect.dat \
+			chselectcd32.dat \
+			aformatchselect.dat \
+			aforcechselect.dat
+
+chselect.dat:		chselect.cpr \
+			chselect.mod \
+			faces.pic \
+			smallfaces.gfx
+			join chselect.cpr chselect.mod faces.pic smallfaces.gfx as chselect.dat
+			propack p d chselect.dat
+			delete chselect.dat
+			rename chselect.rnc ChSelect.dat
+			copy chselect.dat 3dgame:diskdata/disk1/chselect/ChSelect.dat
+			copy chselect.dat 3dgame:test/hiredguns/chselect/ChSelect.dat
+
+chselect.cpr:		chselect.s
+			$(ASM) from chselect.s to ChSelect.cpr
+			strip chselect.cpr 32 4
+
+faces.pic:		faces.ilbm
+			ilbm2raw -cf0,0,1296,226 faces.ilbm Faces.pic
+
+smallfaces.gfx:		smallfaces.ilbm
+			ilbm2raw -c -@smallfaces.script smallfaces.ilbm SmallFaces.gfx
+
+################################################################################
+
+chselectcd32.dat:	chselectcd32.cpr \
+			chselect.mod \
+			facescd32.pic \
+			smallfacescd32.gfx
+			join chselectcd32.cpr chselect.mod facescd32.pic smallfacescd32.gfx /front.dat/fill.dat as ChSelectCD32.dat
+			copy chselectcd32.dat 3dgame:test/hiredgunscd32/chselect/ChSelect.dat
+
+chselectcd32.cpr:	chselectcd32.s
+			$(ASM) from chselectcd32.s to ChSelectCD32.cpr
+			strip chselectcd32.cpr 32 4
+
+facescd32.pic:		facescd32.ilbm
+			ilbm2raw -cf0,0,2624,226 facescd32.ilbm FacesCD32.pic
+
+smallfacescd32.gfx:	smallfacescd32.ilbm
+			ilbm2raw -c -@smallfaces.script smallfacescd32.ilbm SmallFacesCD32.gfx
+
+################################################################################
+
+aformatchselect.dat:	chselect.cpr \
+			chselect.mod \
+			aformatfaces.pic \
+			aformatsmallfaces.gfx
+			join chselect.cpr chselect.mod aformatfaces.pic aformatsmallfaces.gfx as aformatchselect.dat
+			propack p d aformatchselect.dat
+			delete aformatchselect.dat
+			rename aformatchselect.rnc AFormatChSelect.dat
+
+aformatfaces.pic:	aformatfaces.ilbm
+			ilbm2raw -cf0,0,1296,226 aformatfaces.ilbm AFormatFaces.pic
+
+aformatsmallfaces.gfx:	aformatsmallfaces.ilbm
+			ilbm2raw -c -@smallfaces.script aformatsmallfaces.ilbm AFormatSmallFaces.gfx
+
+################################################################################
+
+aforcechselect.dat:	chselect.cpr \
+			chselect.mod \
+			aforcefaces.pic \
+			aforcesmallfaces.gfx
+			join chselect.cpr chselect.mod aforcefaces.pic aforcesmallfaces.gfx as aforcechselect.dat
+			propack p d aforcechselect.dat
+			delete aforcechselect.dat
+			rename aforcechselect.rnc AForceChSelect.dat
+
+aforcefaces.pic:	aforcefaces.ilbm
+			ilbm2raw -cf0,0,1296,226 aforcefaces.ilbm AForceFaces.pic
+
+aforcesmallfaces.gfx:	aforcesmallfaces.ilbm
+			ilbm2raw -c -@smallfaces.script aforcesmallfaces.ilbm AForceSmallFaces.gfx

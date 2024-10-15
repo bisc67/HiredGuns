@@ -1,0 +1,113 @@
+ASM =           genam
+
+################################################################################
+
+all:		pass1 \
+		engtext \
+		fretext \
+		gertext \
+		itatext \
+		spatext \
+		main
+
+################################################################################
+
+SOURCES =	main.s \
+		drawviews.s \
+		controls&movement.s \
+		front.s \
+		cheat.s \
+		diskio.s \
+		checkhost.s \
+		static.s \
+		deathsequence.s \
+		endsequence.s \
+		coldstartup.s \
+		/takeover/library.s \
+		worldmap.s \
+		dosio.s \
+		intro.s \
+		itemusage.s \
+		medmodplayer.s \
+		tables.s \
+		chselect.s \
+		monstermovement.s \
+		miscroutines.s \
+		sky.s
+
+INCLUDES =	macros.i \
+		equates.i \
+		hardware.i \
+		/takeover/takeover.i
+
+main:		$(SOURCES) \
+		$(INCLUDES)
+		$(ASM) main.s
+
+# CD32
+		copy main "3dgame:test/hiredgunscd32/Hired Guns"
+# Normal
+#		execute 3dgame:c/compress p d main
+#		/checksum/checksum >/takeover/Checksum.s ram:test.rnc source
+#		copy ram:test.rnc "/diskdata/disk1/Hired Guns"
+#		copy ram:test.rnc "3dgame:test/hiredguns/Hired Guns"
+
+# Unpacked
+#		/checksum/checksum >/takeover/Checksum.s main source
+#		copy main "3dgame:test/hiredguns/Hired Guns"
+
+################################################################################
+
+pass1:		pass1.s
+		$(ASM) pass1.s
+		strip pass1 32 4
+
+################################################################################
+
+engtext:	/text/engtext.s
+		$(ASM) /text/engtext.s
+		strip engtext 32 4
+		copy engtext 3dgame:test/hiredgunscd32/languages/Phrasebook.eng
+#		execute 3dgame:c/compress p d engtext
+#		copy ram:test.rnc /diskdata/disk1/languages/Phrasebook.eng
+#		copy ram:test.rnc 3dgame:test/hiredguns/languages/Phrasebook.eng
+
+################################################################################
+
+fretext:	/text/fretext.s
+		$(ASM) /text/fretext.s
+		strip fretext 32 4
+		copy fretext 3dgame:test/hiredgunscd32/languages/Phrasebook.fre
+#		execute 3dgame:c/compress p d fretext
+#		copy ram:test.rnc /diskdata/disk1/languages/Phrasebook.fre
+#		copy ram:test.rnc 3dgame:test/hiredguns/languages/Phrasebook.fre
+
+################################################################################
+
+gertext:	/text/gertext.s
+		$(ASM) /text/gertext.s
+		strip gertext 32 4
+		copy gertext 3dgame:test/hiredgunscd32/languages/Phrasebook.ger
+#		execute 3dgame:c/compress p d gertext
+#		copy ram:test.rnc /diskdata/disk1/languages/Phrasebook.ger
+#		copy ram:test.rnc 3dgame:test/hiredguns/languages/Phrasebook.ger
+
+################################################################################
+
+itatext:	/text/itatext.s
+		$(ASM) /text/itatext.s
+		strip itatext 32 4
+		copy itatext 3dgame:test/hiredgunscd32/languages/Phrasebook.ita
+#		execute 3dgame:c/compress p d itatext
+#		copy ram:test.rnc /diskdata/disk1/languages/Phrasebook.ita
+#		copy ram:test.rnc 3dgame:test/hiredguns/languages/Phrasebook.ita
+
+################################################################################
+
+spatext:	/text/spatext.s
+		$(ASM) /text/spatext.s
+		strip spatext 32 4
+		copy spatext 3dgame:test/hiredgunscd32/languages/Phrasebook.spa
+#		execute 3dgame:c/compress p d spatext
+#		copy ram:test.rnc /diskdata/disk1/languages/Phrasebook.spa
+#		copy ram:test.rnc 3dgame:test/hiredguns/languages/Phrasebook.spa

@@ -1,0 +1,3 @@
+execute hiredgunsassigns
+cd work:programmingutils/cd32/iso9660tools/simcd
+simcd

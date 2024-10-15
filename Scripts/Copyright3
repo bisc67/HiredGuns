@@ -1,0 +1,6 @@
+Echo "*N HIRED GUNS*N  by Scott Johnston*N  Release 1.09 (Demonstration version)*N  Revision 39.26"
+Echo "  18th November 1993*N*N Copyright © Psygnosis 1993*N All Rights Reserved*N"
+Resident CLI L:Shell-Seg SYSTEM pure add
+Mount Newcon:
+LoadWB
+EndCli

@@ -1,0 +1,40 @@
+ASM =		genam
+
+################################################################################
+################################################################################
+################################################################################
+
+all:		characters \
+		aformatcharacters \
+		aforcecharacters \
+		oldcharacters
+
+################################################################################
+
+characters :	characters.s
+		$(ASM) characters.s
+
+		strip characters 32 4
+		copy characters 3dgame:test/hiredgunscd32/chselect/Characters.dat
+#		compress p d characters
+#		copy ram:test.rnc source:hiredguns/diskdata/disk1/chselect/Characters.dat
+#		copy ram:test.rnc 3dgame:test/hiredguns/chselect/Characters.dat
+
+oldcharacters :	oldcharacters.s
+		$(ASM) oldcharacters.s
+
+		strip oldcharacters 32 4
+		copy oldcharacters source:hiredguns/diskdata/diskdemo/chselect/Characters.dat
+		copy oldcharacters source:hiredguns/diskdata/diskedit2/chselect/Characters.dat
+		copy oldcharacters 3dgame:test/hiredgunseditor/chselect/Characters.dat
+		copy oldcharacters 3dgame:test/hiredgunsdemo/chselect/Characters.dat
+
+################################################################################
+
+aformatcharacters :	aformatcharacters.s
+			$(ASM) AFormatCharacters.s
+			strip aformatcharacters 32 4
+
+aforcecharacters :	aforcecharacters.s
+			$(ASM) AForceCharacters.s
+			strip aforcecharacters 32 4

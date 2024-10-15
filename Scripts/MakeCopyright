@@ -1,0 +1,5 @@
+copy copyright1 "source:hiredguns/diskdata/disk1/s/Startup-Sequence"
+copy copyright3 "source:hiredguns/diskdata/diskdemo/s/Startup-Sequence"
+
+copy copyright1 "hired guns disk 1:s/Startup-Sequence"
+copy copyright3 "hired guns demo:s/Startup-Sequence"
